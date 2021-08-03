@@ -1,0 +1,58 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  list-style: none;
+}
+
+.item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.activeLink {
+  color: red;
+}
+
+.link::after,
+.activeLink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  height: 2px;
+  background-color: red;
+  opacity: 0;
+}
+
+.activeLink::after {
+  opacity: 1;
+}
+
+.link:hover,
+.link:focus {
+  color: red;
+}
+
+.link:hover::after,
+.link:focus::after {
+  opacity: 1;
+}

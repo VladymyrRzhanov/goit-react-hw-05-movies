@@ -1,0 +1,11 @@
+.section {
+  box-shadow: 13px 13px 25px -5px rgba(34, 60, 80, 0.3);
+}
+
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
