@@ -5,17 +5,14 @@ import FilmDetails from "../components/FilmDetails";
 import * as FilmsApi from '../service/apiFilmsService';
 
 const MoviesPage = () => {
-    const [film, setFilm] = useState({})
+    const [film, setFilm] = useState(null)
+    const [error, setError] = useState('')
     const { filmId } = useParams();
 
     useEffect(() => {
-        const fetchMovie = async () => {
-            await FilmsApi.fetchDetailsMovie(filmId)
+        FilmsApi.fetchDetailsMovie(filmId)
             .then(setFilm)
-            
-        //     .catch(error => setError(error))
-        }
-        fetchMovie()
+            .catch(error => setError(error))
     },[filmId]);
     
     return (
