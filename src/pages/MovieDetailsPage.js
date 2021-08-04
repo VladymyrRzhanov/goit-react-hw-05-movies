@@ -13,7 +13,8 @@ const MoviesPage = () => {
     const { url } = useRouteMatch();
 
     useEffect(() => {
-        FilmsApi.fetchDetailsMovie(filmId)
+        FilmsApi
+            .fetchDetailsMovie(filmId)
             .then(setFilm)
             .catch(error => setError(error))
     }, [filmId]);

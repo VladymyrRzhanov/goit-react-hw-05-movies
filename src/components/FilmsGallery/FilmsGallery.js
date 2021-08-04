@@ -13,8 +13,6 @@ const FilmsGallery = ({ films }) => (
                     poster={poster_path}
                     filmId={id}
                     title={title ?? name}
-                //   modalImg={modalImg}
-                //   onModalClick={onModalOpen}
                 />
                 </Link>
             </li>

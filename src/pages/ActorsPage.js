@@ -1,19 +1,23 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ActorsDetails from "../components/ActorsDetails";
+import ActorsList from "../components/ActorsDetails";
 import * as FilmsApi from "../service/apiFilmsService";
 
 const ActorsPage = () => {
-    const { actorsId } = useParams();
     const [actors, setActors] = useState(null);
-console.log(actors)
+    const [error, setError] = useState('');
+    const { actorsId } = useParams();
+    
     useEffect(() => {
-        FilmsApi.fetchActorsMovie(actorsId).then(({ cast }) => setActors(cast))
+        FilmsApi
+            .fetchActorsMovie(actorsId)
+            .then(({ cast }) => setActors(cast))
+            .catch(error => setError(error))
     }, [actorsId]);
 
     return (
         <>
-            {actors && <ActorsDetails actors={actors} />}
+            {actors && <ActorsList actors={actors} />}
         </>
     );
 };

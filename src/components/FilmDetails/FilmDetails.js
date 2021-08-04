@@ -6,7 +6,9 @@ const FilmDetails = ({ film }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
     const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
-
+    const country = production_countries.map(({ name }) => name).join(', ');
+    
+        
     return (
         <div className={s.card}>
             <div className={s.data}>
@@ -29,7 +31,7 @@ const FilmDetails = ({ film }) => {
                         </li>
                         <li className={s.item}>
                             <span className={s.meaning}>Country:</span>
-                            <span className={s.value}>{production_countries[0].name}</span>
+                            <span className={s.value}>{country}</span>
                         </li>
                         <li className={s.item}>
                             <span className={s.meaning}>Budget:</span>

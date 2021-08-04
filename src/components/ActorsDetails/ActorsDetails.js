@@ -2,10 +2,11 @@ import s from "./ActorsDetails.module.css";
 
 const ActorsDetails = ({ actors }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-
+    const cast = actors.filter(actor => actor.profile_path);
+    
     return (
         <ul className={s.gallery}>
-            {actors.map(({ id, character, name, profile_path }) => (
+            {cast.map(({ id, character, name, profile_path }) => (
                 <li className={s.item} key={id}>
                     <div className={s.card}>
                         <img className={s.container} src={IMAGE_URL + profile_path} alt={name} />
