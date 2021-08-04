@@ -1,9 +1,10 @@
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import s from "./FilmDetails.module.css";
 
 const FilmDetails = ({ film }) => {
-
+    const { url } = useRouteMatch();
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    const { poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
+    const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
 
     return (
@@ -47,8 +48,16 @@ const FilmDetails = ({ film }) => {
             </div>
             <div className={s.overview}>
                 <h3>Overview:</h3>
-                <p>{overview}</p>
+                <p className={s.overviewText}>{overview}</p>
             </div>
+            <ul className={s.info}>
+                <li className={s.infoItem}>
+                    <NavLink to={`${url}/${id}`} className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
+                </li>
+                <li className={s.infoItem}>
+                    <NavLink to={`${url}/${id}`} className={s.linkInfo} activeClassName={s.activeLinkInfo}>Review</NavLink>
+                </li>
+            </ul>
         </div>
     );
 };

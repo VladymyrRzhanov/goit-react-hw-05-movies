@@ -69,3 +69,37 @@
 /* .overview {
   width: 800px;
 } */
+.overviewText {
+  text-align: left;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoItem {
+  list-style: none;
+}
+
+.infoItem:not(:last-child) {
+  margin-right: 50px;
+}
+
+.linkInfo {
+  display: inline-block;
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.activeLinkInfo {
+  color: red;
+}
+
+.linkInfo:hover,
+.linkInfo:focus {
+  color: red;
+}

@@ -1,0 +1,20 @@
+.gallery {
+  padding: 50px 100px;
+  text-align: left;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(189, 187, 187);
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.author {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+}

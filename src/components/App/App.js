@@ -1,18 +1,11 @@
-import { fetchTrendingMovies, fetchSearchMovie, fetchDetailsMovie, fetchActorsMovie, fetchReviewsMovie } from "../../service/apiFilmsService";
 import { Route, Switch } from 'react-router-dom'
 import Container from "../Container";
 import Header from "../Header";
 import Section from "../Section";
 import HomePage from "../../pages/HomePage";
 import MoviesPage from "../../pages/MoviesPage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage";
 import NotFoundPage from "../../pages/NotFoundPage";
-
-
-// fetchTrendingMovies();
-// fetchSearchMovie('Jungle Cruise');
-// fetchDetailsMovie(436969);
-// fetchActorsMovie(522478);
-// fetchReviewsMovie(451048);
 
 const App = () => {
   return (
@@ -40,7 +33,7 @@ const App = () => {
         <Route path="/movies/:filmId">
           <Section>
             <Container>
-              <MoviesPage />
+              <MovieDetailsPage />
             </Container>
           </Section>
         </Route>
