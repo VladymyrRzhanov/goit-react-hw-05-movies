@@ -16,10 +16,11 @@
 }
 
 .item:not(:last-child) {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .card {
+  height: 395px;
   cursor: pointer;
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
