@@ -9,9 +9,10 @@ import * as FilmsApi from '../service/apiFilmsService';
 const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [error, setError] = useState(null);
-    const { filmId } = useParams();
+    const { slug } = useParams();
     const { url } = useRouteMatch();
-
+    const filmId = slug.match(/[a-zA-Z0-9]+$/)[0];
+    
     useEffect(() => {
         FilmsApi
             .fetchDetailsMovie(filmId)
@@ -27,10 +28,10 @@ const MoviesPage = () => {
     return (
         <>
             {film ? <FilmDetails film={film} /> : <h1>{error}</h1>}
-            <Route path={`${url}/:actorsId`} exact>
+            <Route path={`${url}/:slug`} exact>
                 <ActorsPage />
             </Route>
-            <Route path={`${url}/:reviewsId`}>
+            <Route path={`${url}/:slug`}>
                 <ReviewsPage />
             </Route>
         </>

@@ -30,7 +30,7 @@ const App = () => {
           </Section>
         </Route>
 
-        <Route path="/movies/:filmId">
+        <Route path="/movies/:slug">
           <Section>
             <Container>
               <MovieDetailsPage />

@@ -1,4 +1,5 @@
 import { NavLink, useRouteMatch } from 'react-router-dom';
+import slugify from "slugify";
 import s from "./FilmDetails.module.css";
 
 const FilmDetails = ({ film }) => {
@@ -54,10 +55,18 @@ const FilmDetails = ({ film }) => {
             </div>
             <ul className={s.info}>
                 <li className={s.infoItem}>
-                    <NavLink to={`${url}/${id}`} className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
+                    <NavLink to={{
+                        pathname: `${url}/${slugify(`cast ${id}`,
+                            { lower: true, strict: true })}`
+                    }}
+                        className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
                 </li>
                 <li className={s.infoItem}>
-                    <NavLink to={`${url}/${id}`} className={s.linkInfo} activeClassName={s.activeLinkInfo}>Review</NavLink>
+                    <NavLink to={{
+                        pathname: `${url}/${slugify(`reviews ${id}`,
+                            { lower: true, strict: true })}`
+                    }}
+                        className={s.linkInfo} activeClassName={s.activeLinkInfo}>Review</NavLink>
                 </li>
             </ul>
         </div>

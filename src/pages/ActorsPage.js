@@ -6,7 +6,8 @@ import * as FilmsApi from "../service/apiFilmsService";
 const ActorsPage = () => {
     const [actors, setActors] = useState(null);
     const [error, setError] = useState('');
-    const { actorsId } = useParams();
+    const { slug } = useParams();
+    const actorsId = slug.match(/[a-zA-Z0-9]+$/)[0];
     
     useEffect(() => {
         FilmsApi
