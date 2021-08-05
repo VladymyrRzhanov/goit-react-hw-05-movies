@@ -8,20 +8,25 @@ import * as FilmsApi from '../service/apiFilmsService';
 
 const MoviesPage = () => {
     const [film, setFilm] = useState(null);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const { filmId } = useParams();
     const { url } = useRouteMatch();
 
     useEffect(() => {
         FilmsApi
             .fetchDetailsMovie(filmId)
-            .then(setFilm)
+            .then(film => {
+                if (film.success === false) {
+                    return setError(film.status_message)
+                }
+                else { setFilm(film) }
+            })
             .catch(error => setError(error))
     }, [filmId]);
-    
+    console.log(film)
     return (
         <>
-            {film && <FilmDetails film={film} />}
+            {film ? <FilmDetails film={film} /> : <h1>{error}</h1>}
             <Route path={`${url}/:actorsId`} exact>
                 <ActorsPage />
             </Route>

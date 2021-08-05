@@ -1,22 +1,27 @@
 import s from "./ActorsDetails.module.css";
+import oskar from '../../images/oskar.jpg'
+
 
 const ActorsDetails = ({ actors }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    const cast = actors.filter(actor => actor.profile_path);
     
     return (
         <ul className={s.gallery}>
-            {cast.map(({ id, character, name, profile_path }) => (
-                <li className={s.item} key={id}>
-                    <div className={s.card}>
-                        <img className={s.container} src={IMAGE_URL + profile_path} alt={name} />
-                        <div>
-                            <p className={s.name}>{name}</p>
-                            <p className={s.character}>{character}</p>
+            {actors.map(({ id, character, name, profile_path }) => {
+                const foto = profile_path === null ? oskar : `${IMAGE_URL}${profile_path}`;
+
+                return (
+                    <li className={s.item} key={id}>
+                        <div className={s.card}>
+                            <img className={s.container} src={foto} alt={name} />
+                            <div>
+                                <p className={s.name}>{name}</p>
+                                <p className={s.character}>{character}</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            ))}
+                    </li>
+                )
+            })}
         </ul>
     );
 };

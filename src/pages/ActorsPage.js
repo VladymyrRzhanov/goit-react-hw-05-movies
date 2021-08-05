@@ -10,11 +10,12 @@ const ActorsPage = () => {
     
     useEffect(() => {
         FilmsApi
-            .fetchActorsMovie(actorsId)
-            .then(({ cast }) => setActors(cast))
-            .catch(error => setError(error))
+        .fetchActorsMovie(actorsId)
+        .then(({ cast }) => setActors(cast))
+        .catch(error => setError(error))
     }, [actorsId]);
-
+    
+    console.log(actors)
     return (
         <>
             {actors && <ActorsList actors={actors} />}

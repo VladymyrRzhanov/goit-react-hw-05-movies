@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import FilmGalleryItem from './FilmGalleryItem';
 import PropTypes from 'prop-types';
 import s from "./FilmsGallery.module.css";
@@ -20,16 +20,15 @@ const FilmsGallery = ({ films }) => (
     </ul>
 );
 
-// FilmsGallery.propTypes = {
-//   images: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       imageId: PropTypes.number.isRequired,
-//       smallImg: PropTypes.string.isRequired,
-//       modalImg: PropTypes.string.isRequired,
-//       tags: PropTypes.string.isRequired,
-//     }).isRequired,
-//   ).isRequired,
-//   onModalOpen: PropTypes.func.isRequired,
-// };
+FilmsGallery.propTypes = {
+    films: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            poster_path: PropTypes.string,
+            title: PropTypes.string,
+            name: PropTypes.string,
+        }).isRequired,
+    ).isRequired,
+};
 
 export default FilmsGallery;
