@@ -5,6 +5,10 @@
   padding-bottom: 30px;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .item {
   display: flex;
   flex-basis: calc((100% - 4 * 10px) / 4);

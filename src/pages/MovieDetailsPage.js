@@ -1,4 +1,4 @@
-import { useParams, Route, useRouteMatch } from 'react-router-dom';
+import { useParams, Route, useRouteMatch, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ActorsPage from "./ActorsPage";
 import ReviewsPage from "./ReviewsPage";
@@ -10,6 +10,7 @@ const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [error, setError] = useState(null);
     const { slug } = useParams();
+    const { qwe } = useParams();
     const { url } = useRouteMatch();
     const filmId = slug.match(/[a-zA-Z0-9]+$/)[0];
     
@@ -28,12 +29,17 @@ const MoviesPage = () => {
     return (
         <>
             {film ? <FilmDetails film={film} /> : <h1>{error}</h1>}
-            <Route path={`${url}/:slug`} exact>
-                <ActorsPage />
-            </Route>
-            <Route path={`${url}/:slug`}>
-                <ReviewsPage />
-            </Route>
+            {/* <Switch> */}
+
+                <Route path={`${url}/:slug`} exact>
+                    <ActorsPage />
+                </Route>
+                <Route path={`${url}/:qwe`} exact>
+                    <ReviewsPage />
+                </Route>
+
+
+            {/* </Switch> */}
         </>
     );
 };
