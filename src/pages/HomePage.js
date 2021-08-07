@@ -23,6 +23,7 @@ const HomePage = () => {
     return (
         <>
             <FilmsGallery films={films} />
+            {error && <h1>{error.message}</h1>}
             {loading && <Loader />}
             {films.length % 20 === 0 && !!films.length && (<Button onLoadMore={() => setPage(state => state + 1)} />)}
         </>

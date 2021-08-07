@@ -1,4 +1,4 @@
-import { useParams,useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ActorsDetails from "../components/ActorsDetails";
 import * as FilmsApi from "../service/apiFilmsService";
@@ -6,12 +6,9 @@ import * as FilmsApi from "../service/apiFilmsService";
 const ActorsPage = () => {
     const [actors, setActors] = useState(null);
     const [error, setError] = useState('');
-    const { cast } = useParams();
-    const actorsId = cast.match(/[a-zA-Z0-9]+$/)[0];
-
-    const location = useLocation();
-    console.log(location)
-    console.log()
+    const { slug } = useParams();
+    const actorsId = slug.match(/[a-zA-Z0-9]+$/)[0];
+    
     useEffect(() => {
         FilmsApi
         .fetchActorsMovie(actorsId)
@@ -19,9 +16,9 @@ const ActorsPage = () => {
         .catch(error => setError(error))
     }, [actorsId]);
     
-    console.log(actors)
     return (
         <>
+            {error && <h1>{error.message}</h1>}
             {actors && <ActorsDetails actors={actors} />}
         </>
     );

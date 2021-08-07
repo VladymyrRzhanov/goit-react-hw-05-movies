@@ -22,6 +22,21 @@ export const fetchActorsMovie = async (movieId) => {
 };
 
 export const fetchReviewsMovie = async (movieId) => {
-    return await fetch(`${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+    return await fetch(`${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`)
+        .then(response => response.json())
+};
+
+export const fetchImagesMovie = async (movieId) => {
+    return await fetch(`${BASE_URL}movie/${movieId}/images?api_key=${API_KEY}&include_image_language=en,null`)
+        .then(response => response.json())
+};
+
+export const fetchTrailerMovie = async (movieId) => {
+    return await fetch(`${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
+        .then(response => response.json())
+};
+
+export const fetchSimilarMovies = async (movieId) => {
+    return await fetch(`${BASE_URL}movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`)
         .then(response => response.json())
 };

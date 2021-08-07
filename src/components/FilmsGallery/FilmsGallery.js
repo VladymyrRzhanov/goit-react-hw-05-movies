@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
 import FilmGalleryItem from './FilmGalleryItem';
 
 import PropTypes from 'prop-types';
 import s from "./FilmsGallery.module.css";
 
 const FilmsGallery = ({ films }) => {
-    const { url } = useRouteMatch();
     return (
         <ul className={s.gallery}>
             {films.map(({ id, poster_path, title, name }) => (

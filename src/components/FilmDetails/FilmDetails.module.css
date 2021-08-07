@@ -66,9 +66,6 @@
   text-align: left;
 }
 
-/* .overview {
-  width: 800px;
-} */
 .overviewText {
   text-align: left;
 }
@@ -77,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .infoItem {

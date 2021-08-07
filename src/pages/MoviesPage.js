@@ -23,6 +23,7 @@ const MoviesPage = () => {
     
     return (
         <>
+            {error && <h1>{error.message}</h1>}
             <Filter handleChange={handleChange} onSearch={onSearch} />
             {searchFilms && <FilmsGallery films={searchFilms} />}
         </>
