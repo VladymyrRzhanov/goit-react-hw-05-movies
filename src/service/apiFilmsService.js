@@ -2,7 +2,7 @@ const API_KEY = 'b0b72ab6737091a10a9a2ef1ba934753';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
 export const fetchTrendingMovies = async (page) => {
-    return await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}&page=${page}`)
+    return await fetch(`${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${page}`)
         .then(response => response.json())
 };
 

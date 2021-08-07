@@ -24,8 +24,8 @@ const MoviesPage = () => {
     return (
         <>
             <Filter handleChange={handleChange} onSearch={onSearch} />
-            {searchFilms && <FilmsGallery films={searchFilms}/>}
-            </>
+            {searchFilms && <FilmsGallery films={searchFilms} />}
+        </>
     )
 };
 

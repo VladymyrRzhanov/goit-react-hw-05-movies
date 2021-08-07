@@ -1,16 +1,19 @@
-import { NavLink, useRouteMatch,useLocation,useHistory,Link } from 'react-router-dom';
+import { NavLink, useRouteMatch, useLocation, useParams, useHistory, Switch, Route } from 'react-router-dom';
 import slugify from "slugify";
+import ActorsPage from "../../pages/ActorsPage";
+import ReviewsPage from "../../pages/ReviewsPage";
 import s from "./FilmDetails.module.css";
 
 const FilmDetails = ({ film }) => {
     const { url } = useRouteMatch();
+    const { slug } = useParams();
     const location = useLocation();
     const history = useHistory();
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
     const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
-console.log(location)
+
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
     }
@@ -63,25 +66,46 @@ console.log(location)
                 </div>
                 <ul className={s.info}>
                     <li className={s.infoItem}>
-                        <NavLink to={{
-                            pathname: `${url}/${slugify(`cast ${id}`,
-                                { lower: true, strict: true })}`,
-                            state: { from: location }
-                        }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
+                        <NavLink
+                            exact
+                            to={{
+                                pathname: `${url}/cast`,
+                                state: {from:location}
+                            }}
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}
+                        >
+                            Actors
+                        </NavLink>
                     </li>
                     <li className={s.infoItem}>
-                        <NavLink to={{
-                            pathname: `${url}/${slugify(`reviews ${id}`,
-                                { lower: true, strict: true })}`,
-                            state: { from: location }
-                        }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Reviews</NavLink>
+                        <NavLink
+                            exact
+                            to={{
+                                pathname: `${url}/reviews`,
+                                state: { from: location }
+                            }}
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}
+                        >
+                            Reviews
+                        </NavLink>
                     </li>
                 </ul>
+
+                <Switch>
+
+                    <Route path={`${url}/cast`}>123
+                        {/* <ActorsPage /> */}
+                    </Route>
+            
+                    <Route path={`${url}/review`}>456
+                        {/* <ReviewsPage /> */}
+                    </Route>
+                    
+                </Switch>
+
             </div>
         </>
-    );
+    )
 };
 
 export default FilmDetails;

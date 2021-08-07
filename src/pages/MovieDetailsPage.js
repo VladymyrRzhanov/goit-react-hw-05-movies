@@ -1,4 +1,4 @@
-import { useParams, Route, useRouteMatch, Switch } from 'react-router-dom';
+import { useParams, useRouteMatch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ActorsPage from "./ActorsPage";
 import ReviewsPage from "./ReviewsPage";
@@ -28,18 +28,7 @@ const MovieDetailsPage = () => {
         <>
             {film ? <FilmDetails film={film} /> : <h1>{error}</h1>}
            
-            <Switch>
-
-                <Route path={`${url}/:cast`} component={ActorsPage}>
-                    <ActorsPage />
-                </Route>
             
-                <Route path={`${url}/:review`} component={ReviewsPage}>
-                    <ReviewsPage />
-                </Route>
-
-
-            </Switch>
         </>
     );
 };

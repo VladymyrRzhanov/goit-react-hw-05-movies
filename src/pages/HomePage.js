@@ -5,15 +5,8 @@ import Button from "../components/Button";
 import Loader from "../components/Loader";
 
 const HomePage = () => {
-    const [films, setFilms] = useState(
-        // () =>
-        //     JSON.parse(window.sessionStorage.getItem('films')) ??
-            []);
-    const [page, setPage] = useState(
-    // () =>
-    //         JSON.parse(window.sessionStorage.getItem('page')) ??
-            1,
-  );
+    const [films, setFilms] = useState([]);
+    const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false)
         
@@ -26,11 +19,6 @@ const HomePage = () => {
             .catch(error => setError(error))
           .finally(() => setLoading(false)); 
     }, [page]);
-
-    // useEffect(() => {
-    //     window.sessionStorage.setItem('page', JSON.stringify(page));
-    //     window.sessionStorage.setItem('films', JSON.stringify(films));
-    // }, [page, films]);
     
     return (
         <>
