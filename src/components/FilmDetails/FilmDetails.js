@@ -1,7 +1,7 @@
-import { NavLink, useRouteMatch, useLocation, useHistory} from 'react-router-dom';
+import { NavLink, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 import s from "./FilmDetails.module.css";
 
-const FilmDetails = ({ film, images, trailers }) => {
+const FilmDetails = ({ film, onModalOpen }) => {
     const { url } = useRouteMatch();
     const location = useLocation();
     const history = useHistory();
@@ -9,6 +9,7 @@ const FilmDetails = ({ film, images, trailers }) => {
     const { poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
+
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
     }
@@ -19,7 +20,7 @@ const FilmDetails = ({ film, images, trailers }) => {
                 type='button' onClick={onGoBack}>Go back</button>
             <div className={s.card}>
                 <div className={s.data}>
-                    <img className={s.poster} src={IMAGE_URL + poster_path} alt={title} />
+                    <img className={s.poster} src={IMAGE_URL + poster_path} alt={title} onClick={()=>onModalOpen()}/>
                     <div className={s.details}>
                         <h1 className={s.title}>{title}({release_date.slice(0, 4)})</h1>
                         <h2 className={s.tagline}>{tagline}</h2>

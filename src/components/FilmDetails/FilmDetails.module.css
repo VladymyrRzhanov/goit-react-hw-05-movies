@@ -18,6 +18,7 @@
   text-indent: 100%;
   border-radius: 3px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .title {

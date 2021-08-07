@@ -4,7 +4,7 @@ import oskar from '../../images/oskar.jpg'
 
 const ActorsDetails = ({ actors }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    
+    console.log(actors)
     return (
         <ul className={s.gallery}>
             {actors.map(({ id, character, name, profile_path }) => {

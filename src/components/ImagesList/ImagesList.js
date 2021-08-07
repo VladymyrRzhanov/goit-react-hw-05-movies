@@ -1,10 +1,10 @@
 import s from "./ImagesList.module.css";
 
-const ImagesList = ({ images }) => {
+const ImagesList = ({ images, onModalOpen }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     if (images.length === 0) {
-        return <h2>We don't have any image</h2>
+        return <h2>Sorry, we have no image</h2>
     }
 
     return (
@@ -17,6 +17,7 @@ const ImagesList = ({ images }) => {
                         className={s.card}
                         src={IMAGE_URL + file_path}
                         alt={file_path}
+                        onClick={()=>onModalOpen(file_path)}
                     />
                 </li>
             )}

@@ -6,11 +6,16 @@ import ImagesViews from "../views/ImagesViews";
 import TrailersViews from "../views/TrailersViews";
 import SimilarMoviesViews from "../views/SimilarMoviesViews";
 import FilmDetails from "../components/FilmDetails";
+import Modal from "../components/Modal";
 import * as FilmsApi from '../service/apiFilmsService';
+import ModalImage from '../components/Modal/ModalImages';
 
 const MovieDetailsPage = () => {
     const [film, setFilm] = useState(null);
     const [error, setError] = useState(null);
+    const [modalShow, setModalShow] = useState(false);
+    const [modalValue, setModalValue] = useState('');
+    const [caption, setСaption] = useState('');
     const { slug } = useParams();
     const { path } = useRouteMatch();
     const filmId = slug.match(/[a-zA-Z0-9]+$/)[0];
@@ -27,13 +32,30 @@ const MovieDetailsPage = () => {
             .catch(error => setError(error))
     }, [filmId]);
 
+    const toggleModal = (value, caption) => {
+        setModalShow(!modalShow);
+        setModalValue(value);
+        setСaption(caption);
+    };
+
     return (
         <>
             {film ?
                 <FilmDetails
                     film={film}
+                    onModalOpen={toggleModal}
                 /> :
                 <h1>{error}</h1>}
+            {modalShow &&
+                (
+                <Modal
+                    onClose={toggleModal}
+                    // modalValue={modalValue}
+                    // caption={caption}
+                    
+                />
+             
+            )}
            
             <Switch>
                     

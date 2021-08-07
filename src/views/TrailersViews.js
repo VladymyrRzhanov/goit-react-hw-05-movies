@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Trailers from "../components/Trailers";
+import TrailersList from "../components/TrailersList";
 import * as FilmsApi from "../service/apiFilmsService";
 
 const TrailersViews = () => {
@@ -21,7 +21,7 @@ const TrailersViews = () => {
     return (
         <>
             {error && <h1>{error.message}</h1>}
-            {trailers && <Trailers trailers={trailers} />}
+            {trailers && <TrailersList trailers={trailers} />}
         </>
     );
 };

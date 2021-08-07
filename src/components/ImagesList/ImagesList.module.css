@@ -7,7 +7,7 @@
 
 .item {
   display: flex;
-  flex-basis: calc((100% - 4 * 10px) / 4);
+  flex-basis: calc((100% - 8 * 10px) / 8);
   margin: 5px;
   border-radius: 2px;
 }
