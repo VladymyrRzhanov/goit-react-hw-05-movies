@@ -1,4 +1,4 @@
-import { NavLink, useRouteMatch,useLocation,useHistory } from 'react-router-dom';
+import { NavLink, useRouteMatch,useLocation,useHistory,Link } from 'react-router-dom';
 import slugify from "slugify";
 import s from "./FilmDetails.module.css";
 
@@ -10,7 +10,7 @@ const FilmDetails = ({ film }) => {
     const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
-
+console.log(location)
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
     }
@@ -63,18 +63,20 @@ const FilmDetails = ({ film }) => {
                 </div>
                 <ul className={s.info}>
                     <li className={s.infoItem}>
-                        <NavLink to={{
+                        <Link exact to={{
                             pathname: `${url}/${slugify(`cast ${id}`,
-                                { lower: true, strict: true })}`
+                                { lower: true, strict: true })}`,
+                            state: { from: location }
                         }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</Link>
                     </li>
                     <li className={s.infoItem}>
-                        <NavLink to={{
+                        <Link exact to={{
                             pathname: `${url}/${slugify(`reviews ${id}`,
-                                { lower: true, strict: true })}`
+                                { lower: true, strict: true })}`,
+                            state: { from: location }
                         }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Review</NavLink>
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Reviews</Link>
                     </li>
                 </ul>
             </div>

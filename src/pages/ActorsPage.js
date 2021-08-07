@@ -6,8 +6,8 @@ import * as FilmsApi from "../service/apiFilmsService";
 const ActorsPage = () => {
     const [actors, setActors] = useState(null);
     const [error, setError] = useState('');
-    const { slug } = useParams();
-    const actorsId = slug.match(/[a-zA-Z0-9]+$/)[0];
+    const { cast } = useParams();
+    const actorsId = cast.match(/[a-zA-Z0-9]+$/)[0];
 
     const location = useLocation();
     console.log(location)

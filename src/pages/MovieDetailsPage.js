@@ -10,7 +10,6 @@ const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [error, setError] = useState(null);
     const { slug } = useParams();
-    const { qwe } = useParams();
     const { url } = useRouteMatch();
     const filmId = slug.match(/[a-zA-Z0-9]+$/)[0];
     
@@ -29,17 +28,19 @@ const MoviesPage = () => {
     return (
         <>
             {film ? <FilmDetails film={film} /> : <h1>{error}</h1>}
-            {/* <Switch> */}
+           
+            <Switch>
 
-                <Route path={`${url}/:slug`} exact>
+                {/* <Route exact path={`${url}/:cast`} component={ActorsPage}>
                     <ActorsPage />
-                </Route>
-                <Route path={`${url}/:qwe`} exact>
+                </Route> */}
+            
+                <Route exact path={`${url}/:review`} component={ReviewsPage}>
                     <ReviewsPage />
                 </Route>
 
 
-            {/* </Switch> */}
+            </Switch>
         </>
     );
 };
