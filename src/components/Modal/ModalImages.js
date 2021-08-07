@@ -1,8 +1,16 @@
-const ModalImage = ({modalValue, caption}) => {
+import PropTypes from 'prop-types';
+import s from "./Modal.module.css";
+
+const ModalImages = ({ modalValue }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     return (
-    <img src={IMAGE_URL+modalValue} alt={caption} />
-)}
+        <img className={s.image} src={IMAGE_URL + modalValue} alt={modalValue} />
+    );
+};
 
-export default ModalImage
+ModalImages.propTypes = {
+    modalValue: PropTypes.string.isRequired,
+};
+
+export default ModalImages;

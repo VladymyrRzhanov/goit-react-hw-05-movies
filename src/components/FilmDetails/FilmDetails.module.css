@@ -10,6 +10,7 @@
 }
 
 .poster {
+  position: relative;
   display: block;
   overflow: hidden;
   margin-right: 100px;
@@ -19,6 +20,25 @@
   border-radius: 3px;
   object-fit: cover;
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.poster:hover {
+  opacity: 0.7;
+}
+
+.poster::after {
+  content: "";
+  position: absolute;
+  background-image: url(../../images/play.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {
@@ -73,7 +93,7 @@
 
 .info {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 30px;
 }

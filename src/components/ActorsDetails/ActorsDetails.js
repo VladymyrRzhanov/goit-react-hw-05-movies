@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import s from "./ActorsDetails.module.css";
 import oskar from '../../images/oskar.jpg'
 
 
 const ActorsDetails = ({ actors }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    console.log(actors)
+    
     return (
         <ul className={s.gallery}>
             {actors.map(({ id, character, name, profile_path }) => {
@@ -24,6 +25,15 @@ const ActorsDetails = ({ actors }) => {
             })}
         </ul>
     );
+};
+
+ActorsDetails.propTypes = {
+    actors: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        character: PropTypes.string,
+        name: PropTypes.string,
+        profile_path: PropTypes.string,
+    })),
 };
 
 export default ActorsDetails;

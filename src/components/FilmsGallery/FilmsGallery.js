@@ -1,6 +1,5 @@
 import React from 'react';
 import FilmGalleryItem from './FilmGalleryItem';
-
 import PropTypes from 'prop-types';
 import s from "./FilmsGallery.module.css";
 

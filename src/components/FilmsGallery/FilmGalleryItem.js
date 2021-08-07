@@ -33,6 +33,7 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
 };
 
 FilmGalleryItem.propTypes = {
+    id: PropTypes.number.isRequired,
     filmId: PropTypes.number.isRequired,
     poster: PropTypes.string,
     title: PropTypes.string,

@@ -1,4 +1,5 @@
 import { NavLink, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import s from "./FilmDetails.module.css";
 
 const FilmDetails = ({ film, onModalOpen }) => {
@@ -6,21 +7,23 @@ const FilmDetails = ({ film, onModalOpen }) => {
     const location = useLocation();
     const history = useHistory();
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    const { poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
+    const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
-
+    
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
-    }
-        
+    };
+    
     return (
         <>
             <button className={s.button}
                 type='button' onClick={onGoBack}>Go back</button>
             <div className={s.card}>
                 <div className={s.data}>
-                    <img className={s.poster} src={IMAGE_URL + poster_path} alt={title} onClick={()=>onModalOpen()}/>
+                    <div className={s.poster} onClick={() => onModalOpen(id)}>
+                        <img className={s.image} src={IMAGE_URL + poster_path} alt={title} />
+                    </div>
                     <div className={s.details}>
                         <h1 className={s.title}>{title}({release_date.slice(0, 4)})</h1>
                         <h2 className={s.tagline}>{tagline}</h2>
@@ -139,6 +142,28 @@ const FilmDetails = ({ film, onModalOpen }) => {
             </div>
         </>
     );
+};
+
+FilmDetails.propTypes = {
+    film: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        poster_path: PropTypes.string,
+        title: PropTypes.string,
+        release_date: PropTypes.string,
+        production_countries: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string,
+        }),),
+        vote_average: PropTypes.number,
+        budget: PropTypes.number,
+        genres: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string,
+        })),
+        overview: PropTypes.string,
+        revenue: PropTypes.number,
+        runtime: PropTypes.number,
+        tagline: PropTypes.string,
+    }).isRequired,
+    onModalOpen: PropTypes.func.isRequired,
 };
 
 export default FilmDetails;

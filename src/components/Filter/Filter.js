@@ -1,4 +1,5 @@
 import s from "./Filter.module.css";
+import PropTypes from 'prop-types';
 
 const Filter = ({ handleChange, onSearch }) => {
     const handleSubmit = e => {
@@ -25,6 +26,12 @@ const Filter = ({ handleChange, onSearch }) => {
                 Search
             </button>
     </form>
-)}
+    )
+}
+
+Filter.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired,
+};
 
 export default Filter;

@@ -13,7 +13,7 @@ const SimilarMoviesViews = () => {
             ({ results }) => setSimilar(results)
         )
     }, [similarId]);
-    console.log(similar)
+    
     return (
         <>
             {similar && <FilmsGallery films={similar}/>}

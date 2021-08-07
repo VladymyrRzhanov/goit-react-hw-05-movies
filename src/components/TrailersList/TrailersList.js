@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from "./Trailes.module.css";
 
 const Trailers = ({trailers}) => {
@@ -12,5 +13,11 @@ const Trailers = ({trailers}) => {
         </ul>
     );
 };
+
+Trailers.propTypes = {
+    trailers:PropTypes.arrayOf(PropTypes.shape({
+        key:PropTypes.string.isRequired,
+    }),),
+}
 
 export default Trailers;

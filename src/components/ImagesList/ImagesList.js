@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from "./ImagesList.module.css";
 
 const ImagesList = ({ images, onModalOpen }) => {
@@ -23,6 +24,13 @@ const ImagesList = ({ images, onModalOpen }) => {
             )}
         </ul>
     );
+};
+
+ImagesList.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.shape({
+        file_path: PropTypes.string,
+    })),
+    onModalOpen: PropTypes.func.isRequired,
 };
 
 export default ImagesList;
