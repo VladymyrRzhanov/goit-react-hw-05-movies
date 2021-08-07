@@ -63,20 +63,20 @@ console.log(location)
                 </div>
                 <ul className={s.info}>
                     <li className={s.infoItem}>
-                        <Link exact to={{
+                        <NavLink to={{
                             pathname: `${url}/${slugify(`cast ${id}`,
                                 { lower: true, strict: true })}`,
                             state: { from: location }
                         }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</Link>
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Actors</NavLink>
                     </li>
                     <li className={s.infoItem}>
-                        <Link exact to={{
+                        <NavLink to={{
                             pathname: `${url}/${slugify(`reviews ${id}`,
                                 { lower: true, strict: true })}`,
                             state: { from: location }
                         }}
-                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Reviews</Link>
+                            className={s.linkInfo} activeClassName={s.activeLinkInfo}>Reviews</NavLink>
                     </li>
                 </ul>
             </div>

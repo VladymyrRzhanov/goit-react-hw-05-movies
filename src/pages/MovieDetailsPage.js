@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 import ActorsPage from "./ActorsPage";
 import ReviewsPage from "./ReviewsPage";
 import FilmDetails from "../components/FilmDetails";
-
 import * as FilmsApi from '../service/apiFilmsService';
 
-const MoviesPage = () => {
+const MovieDetailsPage = () => {
     const [film, setFilm] = useState(null);
     const [error, setError] = useState(null);
     const { slug } = useParams();
@@ -31,11 +30,11 @@ const MoviesPage = () => {
            
             <Switch>
 
-                {/* <Route exact path={`${url}/:cast`} component={ActorsPage}>
+                <Route path={`${url}/:cast`} component={ActorsPage}>
                     <ActorsPage />
-                </Route> */}
+                </Route>
             
-                <Route exact path={`${url}/:review`} component={ReviewsPage}>
+                <Route path={`${url}/:review`} component={ReviewsPage}>
                     <ReviewsPage />
                 </Route>
 
@@ -45,4 +44,4 @@ const MoviesPage = () => {
     );
 };
 
-export default MoviesPage;
+export default MovieDetailsPage;
