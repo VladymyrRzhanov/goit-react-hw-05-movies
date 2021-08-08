@@ -1,0 +1,136 @@
+.card {
+  padding: 0 100px;
+}
+
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(197, 197, 197);
+}
+
+.poster {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  border-radius: 3px;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.image {
+  width: 80%;
+}
+
+.tagline {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.details {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.list {
+  width: 650px;
+  margin-bottom: 30px;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.meaning {
+  width: 110px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+}
+
+.overviewText {
+  text-align: left;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.infoItem {
+  list-style: none;
+}
+
+.infoItem:not(:last-child) {
+  margin-right: 50px;
+}
+
+.linkInfo {
+  display: inline-block;
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.activeLinkInfo {
+  color: red;
+}
+
+.linkInfo:hover,
+.linkInfo:focus {
+  color: red;
+}
+
+.button {
+  position: absolute;
+  top: -40px;
+  left: 115px;
+  padding: 4px 10px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-color: #3f51b5;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: block;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 500;
+  min-width: 100px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.button:hover,
+.button:focus {
+  background-color: #303f9f;
+}

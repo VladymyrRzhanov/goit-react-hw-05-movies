@@ -3,7 +3,7 @@ import s from "./ActorsDetails.module.css";
 import oskar from '../../images/oskar.jpg'
 
 
-const ActorsDetails = ({ actors }) => {
+const ActorsDetails = ({ actors, onModalOpen }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
     
     return (
@@ -13,7 +13,7 @@ const ActorsDetails = ({ actors }) => {
 
                 return (
                     <li className={s.item} key={id}>
-                        <div className={s.card}>
+                        <div className={s.card} onClick={() => onModalOpen(id)}>
                             <img className={s.container} src={foto} alt={name} />
                             <div>
                                 <p className={s.name}>{name}</p>
@@ -34,6 +34,7 @@ ActorsDetails.propTypes = {
         name: PropTypes.string,
         profile_path: PropTypes.string,
     })),
+    onModalOpen: PropTypes.func.isRequired,
 };
 
 export default ActorsDetails;
