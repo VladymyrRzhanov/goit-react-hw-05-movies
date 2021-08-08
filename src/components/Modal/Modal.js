@@ -5,7 +5,7 @@ import s from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal');
 
-const Modal = ({ onClose, children }) => {
+const Modal = ({ onClose, index, children }) => {
     useEffect(() => {
         const modalClose = e => {
             if (e.code === 'Escape') {
@@ -13,7 +13,9 @@ const Modal = ({ onClose, children }) => {
             }
         };
         window.addEventListener('keydown', modalClose);
-        return () => window.removeEventListener('keydown', modalClose);
+        return () => {
+            window.removeEventListener('keydown', modalClose);
+        };
     });
 
     const handleBackdropClick = e => {

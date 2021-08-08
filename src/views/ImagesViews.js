@@ -9,6 +9,7 @@ const ImagesViews = () => {
     const [images, setImages] = useState([]);
     const [modalShow, setModalShow] = useState(false);
     const [modalValue, setModalValue] = useState('');
+    const [index, setIndex] = useState(null)
     const [error, setError] = useState('');
     const { slug } = useParams();
     const imagesId = slug.match(/[a-zA-Z0-9]+$/)[0];
@@ -22,9 +23,10 @@ const ImagesViews = () => {
             )
     }, [imagesId])
 
-    const toggleModal = (value) => {
+    const toggleModal = (value,index) => {
         setModalShow(!modalShow);
         setModalValue(value);
+        setIndex(index)
     };
     
     return (
@@ -34,7 +36,7 @@ const ImagesViews = () => {
             {modalShow &&
                 (
                 <Modal
-                    onClose={toggleModal}
+                    onClose={toggleModal} index={index}
                 >
                     <ModalImages modalValue={modalValue}/>
                     </Modal>

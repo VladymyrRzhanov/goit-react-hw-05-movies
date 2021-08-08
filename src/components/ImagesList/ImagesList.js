@@ -10,15 +10,16 @@ const ImagesList = ({ images, onModalOpen }) => {
 
     return (
         <ul className={s.gallery}>
-            {images.map(({ file_path }) =>
+            {images.map(({ file_path }, index) =>
                 <li
+                    onClick={()=>onModalOpen(file_path,index)}
                     className={s.item}
                     key={file_path}>
                     <img
                         className={s.card}
                         src={IMAGE_URL + file_path}
+                        id={index}
                         alt={file_path}
-                        onClick={()=>onModalOpen(file_path)}
                     />
                 </li>
             )}
