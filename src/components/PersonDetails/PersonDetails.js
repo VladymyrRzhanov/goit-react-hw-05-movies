@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from "./PersonDetails.module.css";
 
 const PersonDetails = ({ person: { biography, birthday, name, place_of_birth, profile_path } }) => {
@@ -19,14 +20,24 @@ const PersonDetails = ({ person: { biography, birthday, name, place_of_birth, pr
                         <span className={s.meaning}>Place of birth:</span>
                         <span className={s.value}>{place_of_birth}</span>
                     </li>
-                    <li className={s.item}>
-                        <span className={s.meaning}>Biography:</span>
-                        <span className={s.value}>{biography}</span>
-                    </li>
                 </ul>
+                <div className={s.overview}>
+                    <h3>Biography:</h3>
+                    <p className={s.overviewText}>{biography}</p>
+                </div>
             </div>
         </div>
     );
+};
+
+PersonDetails.propTypes = {
+    person: PropTypes.shape({
+        biography: PropTypes.string,
+        birthday: PropTypes.string,
+        name: PropTypes.string,
+        place_of_birth: PropTypes.string,
+        profile_path: PropTypes.string,
+    }),
 };
 
 export default PersonDetails;
