@@ -12,7 +12,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
     const country = production_countries.map(({ name }) => name).join(', ');
     
     const onGoBack = () => {
-        history.push(location?.state?.from ?? '/')
+        history.push(location?.state?.from?.state?.from ?? '/')
     };
     
     return (

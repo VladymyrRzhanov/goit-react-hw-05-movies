@@ -1,14 +1,18 @@
+import { lazy, Suspense } from 'react';
 import { useParams, useRouteMatch, Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ActorsViews from "../views/ActorsViews";
-import ReviewsViews from "../views/ReviewsViews";
-import ImagesViews from "../views/ImagesViews";
-import TrailersViews from "../views/TrailersViews";
-import SimilarMoviesViews from "../views/SimilarMoviesViews";
 import FilmDetails from "../components/FilmDetails";
 import Modal from '../components/Modal';
 import ModalTrailer from "../components/Modal/ModalTrailer";
 import * as FilmsApi from '../service/apiFilmsService';
+import Loader from "../components/Loader";
+
+const ActorsViews = lazy(() => import('../views/ActorsViews'));
+const ReviewsViews = lazy(() => import('../views/ReviewsViews'));
+const ImagesViews = lazy(() => import('../views/ImagesViews'));
+const TrailersViews = lazy(() => import('../views/TrailersViews'));
+const SimilarMoviesViews = lazy(() => import('../views/SimilarMoviesViews'));
+
 
 const MovieDetailsPage = () => {
     const [film, setFilm] = useState(null);
@@ -42,7 +46,7 @@ const MovieDetailsPage = () => {
                 <FilmDetails
                     film={film}
                     onModalOpen={toggleModal}
-                /> 
+                />
                 : <h1>{error}</h1>
             }
 
@@ -52,34 +56,34 @@ const MovieDetailsPage = () => {
                     onClose={toggleModal}
                 >
                     <ModalTrailer
-                    trailerId={modalValue}
-                />
-                    </Modal>
+                        trailerId={modalValue}
+                    />
+                </Modal>
             }
            
-            <Switch>
-                    
-                <Route path={`${path}/cast`}>
-                    <ActorsViews />
-                </Route>
+            <Suspense fallback={<Loader />}>
+                <Switch>
+                    <Route path={`${path}/cast`}>
+                        <ActorsViews />
+                    </Route>
             
-                <Route path={`${path}/reviews`}>
-                    <ReviewsViews />
-                </Route>
+                    <Route path={`${path}/reviews`}>
+                        <ReviewsViews />
+                    </Route>
 
-                <Route path={`${path}/images`}>
-                    <ImagesViews />
-                </Route>
+                    <Route path={`${path}/images`}>
+                        <ImagesViews />
+                    </Route>
 
-                <Route path={`${path}/trailers`}>
-                    <TrailersViews />
-                </Route>
+                    <Route path={`${path}/trailers`}>
+                        <TrailersViews />
+                    </Route>
 
-                <Route path={`${path}/similar`}>
-                    <SimilarMoviesViews />
-                </Route>
-                    
-            </Switch>
+                    <Route path={`${path}/similar`}>
+                        <SimilarMoviesViews />
+                    </Route>
+                </Switch>
+            </Suspense>
         </>
     );
 };
