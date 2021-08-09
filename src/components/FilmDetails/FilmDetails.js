@@ -12,9 +12,10 @@ const FilmDetails = ({ film, onModalOpen }) => {
     const country = production_countries.map(({ name }) => name).join(', ');
     
     const onGoBack = () => {
-        history.push(location?.state?.from?.state?.from ?? '/')
+        history.push(location?.state?.from ?? '/')
     };
-    
+    console.log(location)
+
     return (
         <>
             <button className={s.button}
@@ -73,7 +74,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             exact
                             to={{
                                 pathname: `${url}/cast`,
-                                state: { from: location }
+                                state: { ...location.state }
                             }}
                             className={s.linkInfo}
                             activeClassName={s.activeLinkInfo}
@@ -87,7 +88,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             exact
                             to={{
                                 pathname: `${url}/reviews`,
-                                state: { from: location }
+                                state: { ...location.state }
                             }}
                             className={s.linkInfo}
                             activeClassName={s.activeLinkInfo}
@@ -101,7 +102,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             exact
                             to={{
                                 pathname: `${url}/images`,
-                                state: { from: location }
+                                state: { ...location.state }
                             }}
                             className={s.linkInfo}
                             activeClassName={s.activeLinkInfo}
@@ -115,7 +116,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             exact
                             to={{
                                 pathname: `${url}/trailers`,
-                                state: { from: location }
+                                state: { ...location.state }
                             }}
                             className={s.linkInfo}
                             activeClassName={s.activeLinkInfo}
@@ -129,7 +130,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             exact
                             to={{
                                 pathname: `${url}/similar`,
-                                state: { from: location }
+                                state: { ...location.state }
                             }}
                             className={s.linkInfo}
                             activeClassName={s.activeLinkInfo}
