@@ -7,11 +7,11 @@ import ModalTrailer from "../components/Modal/ModalTrailer";
 import * as FilmsApi from '../service/apiFilmsService';
 import Loader from "../components/Loader";
 
-const ActorsViews = lazy(() => import('../views/ActorsViews'));
-const ReviewsViews = lazy(() => import('../views/ReviewsViews'));
-const ImagesViews = lazy(() => import('../views/ImagesViews'));
-const TrailersViews = lazy(() => import('../views/TrailersViews'));
-const SimilarMoviesViews = lazy(() => import('../views/SimilarMoviesViews'));
+const ActorsViews = lazy(() => import('../views/ActorsViews' /* webpackChunkName: "actors-view" */));
+const ReviewsViews = lazy(() => import('../views/ReviewsViews' /* webpackChunkName: "reviews-view" */));
+const ImagesViews = lazy(() => import('../views/ImagesViews' /* webpackChunkName: "images-view" */));
+const TrailersViews = lazy(() => import('../views/TrailersViews' /* webpackChunkName: "trailers-view" */));
+const SimilarMoviesViews = lazy(() => import('../views/SimilarMoviesViews' /* webpackChunkName: "similar-view" */));
 
 
 const MovieDetailsPage = () => {

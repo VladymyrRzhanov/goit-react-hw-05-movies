@@ -4,10 +4,10 @@ import Container from "../Container";
 import Header from "../Header";
 import Section from "../Section";
 import Loader from "../Loader";
-const HomePage = lazy(() => import('../../pages/HomePage'));
-const MoviesPage = lazy(() => import('../../pages/MoviesPage'));
-const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage'));
-const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
+const HomePage = lazy(() => import('../../pages/HomePage' /* webpackChunkName: "home-page" */));
+const MoviesPage = lazy(() => import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */));
+const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage' /* webpackChunkName: "movieDetails-page" */));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage' /* webpackChunkName: "notFound-page" */));
 
 const App = () => {
   return (
