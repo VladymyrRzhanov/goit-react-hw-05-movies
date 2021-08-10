@@ -19,7 +19,6 @@ const Filter = ({ handleChange, onSearch }) => {
                 autoFocus
                 placeholder="Enter the movie"
                 onChange={handleChange} />
-            
             <button
                 className={s.button}
                 type='submit'>

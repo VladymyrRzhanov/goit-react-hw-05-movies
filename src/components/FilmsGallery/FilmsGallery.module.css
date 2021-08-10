@@ -1,5 +1,6 @@
 .gallery {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin: -15px;
   padding-bottom: 30px;
@@ -11,16 +12,17 @@
 
 .item {
   display: flex;
-  flex-basis: calc((100% - 4 * 10px) / 4);
+  flex-basis: calc((100% - 5 * 10px) / 6);
   margin: 5px;
   border-radius: 2px;
 }
 
 .item:not(:last-child) {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .card {
+  width: 220px;
   position: relative;
   cursor: pointer;
   border-radius: 4px;
@@ -29,8 +31,8 @@
 
 .container {
   position: relative;
-  width: 280px;
-  height: 398px;
+  width: 220px;
+  height: 330px;
   margin-bottom: 10px;
   border-radius: 5px;
   object-fit: contain;
@@ -46,7 +48,6 @@
 
 img {
   display: block;
-  width: 100%;
   height: 100%;
 }
 
@@ -55,4 +56,5 @@ img {
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
+  color: #000;
 }

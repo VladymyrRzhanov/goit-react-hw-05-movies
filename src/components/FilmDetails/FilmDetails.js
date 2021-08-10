@@ -1,5 +1,7 @@
 import { NavLink, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Button from "../Button";
+import oskar from '../../images/oskar.jpg'
 import s from "./FilmDetails.module.css";
 
 const FilmDetails = ({ film, onModalOpen }) => {
@@ -10,20 +12,21 @@ const FilmDetails = ({ film, onModalOpen }) => {
     const { id, poster_path, title, release_date, production_countries, vote_average, budget, genres, overview, revenue, runtime, tagline } = film;
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
+    const poster = poster_path === null ? oskar : `${IMAGE_URL}${poster_path}`;
     
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
     };
-    console.log(location)
 
     return (
         <>
-            <button className={s.button}
-                type='button' onClick={onGoBack}>Go back</button>
+            <div className={s.buttonContainer}>
+                <Button text={'Go back'} type={'button'} onLoadMore={onGoBack}/>
+            </div>
             <div className={s.card}>
                 <div className={s.data}>
                     <div className={s.poster} onClick={() => onModalOpen(id)}>
-                        <img className={s.image} src={IMAGE_URL + poster_path} alt={title} />
+                        <img className={s.image} src={poster} alt={title} />
                     </div>
                     <div className={s.details}>
                         <h1 className={s.title}>{title}({release_date.slice(0, 4)})</h1>
@@ -63,7 +66,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                 </div>
                 
                 <div className={s.overview}>
-                    <h3>Overview:</h3>
+                    <h3 className={s.overviewTitle}>Overview:</h3>
                     <p className={s.overviewText}>{overview}</p>
                 </div>
                 

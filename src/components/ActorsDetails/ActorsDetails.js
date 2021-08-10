@@ -5,7 +5,9 @@ import oskar from '../../images/oskar.jpg'
 
 const ActorsDetails = ({ actors, onModalOpen }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-    
+    if (actors.length === 0) {
+        return <h2>Sorry, we haven't actors yet</h2>
+    }
     return (
         <ul className={s.gallery}>
             {actors.map(({ id, character, name, profile_path }) => {

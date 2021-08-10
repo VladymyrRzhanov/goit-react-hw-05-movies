@@ -4,6 +4,7 @@ import Container from "../Container";
 import Header from "../Header";
 import Section from "../Section";
 import Loader from "../Loader";
+import Footer from "../Footer";
 const HomePage = lazy(() => import('../../pages/HomePage' /* webpackChunkName: "home-page" */));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage' /* webpackChunkName: "movieDetails-page" */));
@@ -50,6 +51,8 @@ const App = () => {
 
         </Switch>
       </Suspense>
+   
+      <Footer />
     </>
   );
 };

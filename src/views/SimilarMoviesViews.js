@@ -16,6 +16,7 @@ const SimilarMoviesViews = () => {
     
     return (
         <>
+            
             {similar && <FilmsGallery films={similar}/>}
         </>
     );

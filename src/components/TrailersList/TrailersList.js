@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import s from "./Trailes.module.css";
 
-const Trailers = ({trailers}) => {
+const Trailers = ({ trailers }) => {
+    if (trailers.length === 0) {
+        return <h2>Sorry, we haven't trailers yet</h2>
+    }
     return (
         <ul className={s.list}>
             {trailers.map(({ key }) =>

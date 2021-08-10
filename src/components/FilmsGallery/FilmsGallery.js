@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import s from "./FilmsGallery.module.css";
 
 const FilmsGallery = ({ films }) => {
+    if (films.length === 0) {
+        return <h2>Sorry, we haven't films yet</h2>
+    }
     return (
         <ul className={s.gallery}>
             {films.map(({ id, poster_path, title, name }) => (
