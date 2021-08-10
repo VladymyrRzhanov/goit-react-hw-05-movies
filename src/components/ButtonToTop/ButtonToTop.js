@@ -6,7 +6,6 @@ const ButtonToTop = ({toTop}) => (
         className={s.button}
         type='button' 
         onClick={toTop}>
-        &#708;
     </button>
 );
 
