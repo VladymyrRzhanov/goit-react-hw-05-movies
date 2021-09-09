@@ -1,6 +1,6 @@
 import Container from "../Container";
 import Batman from "../../images/batman.png";
-import { CustomFooter, Copyright, Profile, Link, Name } from "./styles";
+import { CustomFooter, Copyright, Link, Name } from "./styles";
 
 const Footer = () => {
     const today = new Date(),
@@ -15,10 +15,6 @@ const Footer = () => {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Profile
-                            src={Batman}
-                            alt='batman'
-                        />
                         <Name>
                             Vladymyr Rzhanov
                         </Name>

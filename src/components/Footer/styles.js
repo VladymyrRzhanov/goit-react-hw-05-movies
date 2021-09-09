@@ -16,8 +16,7 @@ export const Copyright = styled.p`
 `;
 
 export const Name = styled.span`
-  opacity: 0;
-  transition: 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
+font-size: 14px;
 `;
 
 export const Profile = styled.img`
@@ -29,9 +28,7 @@ export const Profile = styled.img`
 `;
 
 export const Link = styled.a`
-  margin-left: 20px;
-  margin-right: 20px;
-  color: #000;
+  text-decoration: none;
 `;
 
 

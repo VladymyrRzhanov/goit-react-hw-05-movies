@@ -40,7 +40,7 @@ export const MenuLink = styled(NavLink)`
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 23px 15px;
+  padding: 23px 0;
   font-size: 18px;
   color: rgb(255 255 255);
   line-height: 14px;

@@ -1,31 +1,35 @@
 import styled from 'styled-components';
 
 export const Gallery = styled.ul`
-  display: flex;
+@media screen and (min-width: 768px) {
+    display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   margin: -15px;
+  }
+  
 `;
 
 export const Item = styled.li`
+@media screen and (min-width: 768px) {
   display: flex;
   flex-basis: calc((100% - 8 * 10px) / 8);
   margin: 10px;
-  border-radius: 2px;
-
+}
   &:not(:last-child) {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 `;
 
 export const Card = styled.div`
-  height: 300px;
-  width: 200px;
   cursor: pointer;
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+@media screen and (min-width: 768px) {
+  height: 300px;
+  width: 200px;
+}
   &:hover {
   transform: scale(1.03);
 }
@@ -51,7 +55,8 @@ export const Container = styled.img`
 
 export const Name = styled.p`
   font-weight: 500;
-  font-size: 12px;
+  font-size: 18px;
+  margin-bottom: 10px;
   line-height: 1.17;
   text-transform: uppercase;
 `;

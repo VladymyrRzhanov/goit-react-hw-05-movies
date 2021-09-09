@@ -22,13 +22,13 @@ const FilmDetails = ({ film, onModalOpen }) => {
     return (
         <>
             <ButtonContainer>
-                <Button text={'Go back'} type={'button'} onLoadMore={onGoBack}/>
+                <Button text={'Go back'} type={'button'} onLoadMore={onGoBack} />
             </ButtonContainer>
             <Card>
                 <Data>
                     <Poster onClick={() => onModalOpen(id)}>
                         <PosterImg src={poster} alt={title} />
-                        <BtnPlay/>
+                        <BtnPlay />
                     </Poster>
                     <Details>
                         <Title>{title}({release_date.slice(0, 4)})</Title>
@@ -71,7 +71,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
                     <OverviewTitle>Overview:</OverviewTitle>
                     <OverviewText>{overview}</OverviewText>
                 </div>
-                
+                </Card>
                 <Info>
 
                     <InfoItem>
@@ -134,7 +134,6 @@ const FilmDetails = ({ film, onModalOpen }) => {
                         </LinkInfo>
                     </InfoItem>
                 </Info>
-            </Card>
         </>
     );
 };

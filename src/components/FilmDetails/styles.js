@@ -3,14 +3,18 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as Play } from "../../images/play.svg";
 
 export const Card = styled.div`
-  padding: 0 100px;
+  /* padding: 0 100px; */
+  margin-bottom: 30px;
 `;
 
 export const Data = styled.div`
+  margin-bottom: 30px;
+  
+  @media screen and (min-width: 768px) {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 30px;
+  }
 `;
 
 export const BtnPlay = styled(Play)`
@@ -26,16 +30,21 @@ export const Poster = styled.div`
   position: relative;
   display: block;
   overflow: hidden;
-  margin-right: 100px;
   white-space: nowrap;
   text-indent: 100%;
   border-radius: 3px;
   object-fit: cover;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 20px;
 
 &:hover, &:focus {
   opacity: 0.7;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 100px;
+    margin-bottom: 0;
+  }
 }
 `;
 
@@ -58,15 +67,14 @@ export const Tagline = styled.h2`
 `;
 
 export const Details = styled.div`
-  width: 700px;
-  display: flex;
+  /* width: 700px; */
+  /* display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: stretch; */
 `;
 
 export const List = styled.ul`
-  width: 500px;
-  margin-bottom: 30px;
+  width: 100%;
 `;
 
 export const Item = styled.li`
@@ -80,15 +88,17 @@ export const Item = styled.li`
 `;
 
 export const Meaning = styled.span`
-  width: 110px;
+  width: 30%;
   margin-right: 20px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   text-align: left;
 `;
 
 export const Value = styled.span`
+  width: 70%;
   text-align: left;
+  word-wrap: break-word;
 `;
 
 export const OverviewTitle = styled.h3`
@@ -96,8 +106,7 @@ export const OverviewTitle = styled.h3`
 `;
 
 export const OverviewText = styled.p`
-  text-align: left;
-  margin-bottom: 40px;
+  text-align: justify;
 `;
 
 export const Info = styled.ul`
@@ -111,7 +120,7 @@ export const InfoItem = styled.li`
   list-style: none;
 
 &:not(:last-child) {
-  margin-right: 50px;
+  margin-right: 15px;
 }
 `;
 
@@ -120,8 +129,8 @@ export const LinkInfo = styled(NavLink)`
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 23px 15px;
-  font-size: 18px;
+  padding: 23px 0;
+  font-size: 12px;
   color: rgb(0 0 0);
   line-height: 14px;
   letter-spacing: 0.4px;

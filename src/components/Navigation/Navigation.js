@@ -3,9 +3,9 @@ import { Container, Nav, Logo, List, Item, MenuLink } from "./styles";
 
 const Navigation = () => (
     <Container>
-        <Link to='/'>
+        {/* <Link to='/'>
             <Logo/>
-        </Link>
+        </Link> */}
         <Nav>
             <List>
                 <Item>
