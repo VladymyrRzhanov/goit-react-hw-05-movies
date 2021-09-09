@@ -1,8 +1,9 @@
-import { NavLink, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
+import { useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from "../Button";
 import oskar from '../../images/oskar.jpg'
 import s from "./FilmDetails.module.css";
+import { Card, Data, Poster, Title, Tagline, Details, List, Item, Meaning, Value, OverviewTitle, OverviewText, Info, InfoItem, LinkInfo, ButtonContainer, PosterImg, BtnPlay } from "./styles";
 
 const FilmDetails = ({ film, onModalOpen }) => {
     const { url } = useRouteMatch();
@@ -20,130 +21,120 @@ const FilmDetails = ({ film, onModalOpen }) => {
 
     return (
         <>
-            <div className={s.buttonContainer}>
+            <ButtonContainer>
                 <Button text={'Go back'} type={'button'} onLoadMore={onGoBack}/>
-            </div>
-            <div className={s.card}>
-                <div className={s.data}>
-                    <div className={s.poster} onClick={() => onModalOpen(id)}>
-                        <img className={s.image} src={poster} alt={title} />
-                    </div>
-                    <div className={s.details}>
-                        <h1 className={s.title}>{title}({release_date.slice(0, 4)})</h1>
-                        <h2 className={s.tagline}>{tagline}</h2>
-                        <ul className={s.list}>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Date:</span>
-                                <span className={s.value}>{release_date}</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Genres:</span>
-                                <span className={s.value}>{genresFilm}</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Runtime:</span>
-                                <span className={s.value}>{runtime}min</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Country:</span>
-                                <span className={s.value}>{country}</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Budget:</span>
-                                <span className={s.value}>{budget}$</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Revenue:</span>
-                                <span className={s.value}>{revenue}$</span>
-                            </li>
-                            <li className={s.item}>
-                                <span className={s.meaning}>Rating IMDB:</span>
-                                <span className={s.value}>{vote_average}</span>
-                            </li>
+            </ButtonContainer>
+            <Card>
+                <Data>
+                    <Poster onClick={() => onModalOpen(id)}>
+                        <PosterImg src={poster} alt={title} />
+                        <BtnPlay/>
+                    </Poster>
+                    <Details>
+                        <Title>{title}({release_date.slice(0, 4)})</Title>
+                        <Tagline>{tagline}</Tagline>
+                        <List>
+                            <Item>
+                                <Meaning>Date:</Meaning>
+                                <Value>{release_date}</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Genres:</Meaning>
+                                <Value>{genresFilm}</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Runtime:</Meaning>
+                                <Value>{runtime}min</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Country:</Meaning>
+                                <Value>{country}</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Budget:</Meaning>
+                                <Value>{budget}$</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Revenue:</Meaning>
+                                <Value>{revenue}$</Value>
+                            </Item>
+                            <Item>
+                                <Meaning>Rating IMDB:</Meaning>
+                                <Value>{vote_average}</Value>
+                            </Item>
                             
-                        </ul>
-                    </div>
-                </div>
+                        </List>
+                    </Details>
+                </Data>
                 
                 <div className={s.overview}>
-                    <h3 className={s.overviewTitle}>Overview:</h3>
-                    <p className={s.overviewText}>{overview}</p>
+                    <OverviewTitle>Overview:</OverviewTitle>
+                    <OverviewText>{overview}</OverviewText>
                 </div>
                 
-                <ul className={s.info}>
+                <Info>
 
-                    <li className={s.infoItem}>
-                        <NavLink
+                    <InfoItem>
+                        <LinkInfo
                             exact
                             to={{
                                 pathname: `${url}/cast`,
                                 state: { ...location.state }
                             }}
-                            className={s.linkInfo}
-                            activeClassName={s.activeLinkInfo}
                         >
                             Actors
-                        </NavLink>
-                    </li>
+                        </LinkInfo>
+                    </InfoItem>
 
-                    <li className={s.infoItem}>
-                        <NavLink
+                    <InfoItem>
+                        <LinkInfo
                             exact
                             to={{
                                 pathname: `${url}/reviews`,
                                 state: { ...location.state }
                             }}
-                            className={s.linkInfo}
-                            activeClassName={s.activeLinkInfo}
                         >
                             Reviews
-                        </NavLink>
-                    </li>
+                        </LinkInfo>
+                    </InfoItem>
 
-                    <li className={s.infoItem}>
-                        <NavLink
+                    <InfoItem>
+                        <LinkInfo
                             exact
                             to={{
                                 pathname: `${url}/images`,
                                 state: { ...location.state }
                             }}
-                            className={s.linkInfo}
-                            activeClassName={s.activeLinkInfo}
                         >
                             Images
-                        </NavLink>
-                    </li>
+                        </LinkInfo>
+                    </InfoItem>
 
-                    <li className={s.infoItem}>
-                        <NavLink
+                    <InfoItem>
+                        <LinkInfo
                             exact
                             to={{
                                 pathname: `${url}/trailers`,
                                 state: { ...location.state }
                             }}
-                            className={s.linkInfo}
-                            activeClassName={s.activeLinkInfo}
                         >
                             Trailers
-                        </NavLink>
-                    </li>
+                        </LinkInfo>
+                    </InfoItem>
 
-                    <li className={s.infoItem}>
-                        <NavLink
+                    <InfoItem>
+                        <LinkInfo
                             exact
                             to={{
                                 pathname: `${url}/similar`,
                                 state: { ...location.state }
                             }}
-                            className={s.linkInfo}
-                            activeClassName={s.activeLinkInfo}
                         >
                             Similar
-                        </NavLink>
-                    </li>
-
-                </ul>
-            </div>
+                        </LinkInfo>
+                    </InfoItem>
+                </Info>
+            </Card>
         </>
     );
 };

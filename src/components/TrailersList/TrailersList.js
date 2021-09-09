@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
-import s from "./Trailes.module.css";
+import { List, Item } from "./styles";
 
 const Trailers = ({ trailers }) => {
     if (trailers.length === 0) {
         return <h2>Sorry, we haven't trailers yet</h2>
     }
     return (
-        <ul className={s.list}>
+        <List>
             {trailers.map(({ key }) =>
-                <li className={s.item}
+                <Item
                     key={key}>
                     <iframe width="560" height="315" src={`https://www.youtube.com/embed/${key}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                </li>
+                </Item>
             )}
-        </ul>
+        </List>
     );
 };
 

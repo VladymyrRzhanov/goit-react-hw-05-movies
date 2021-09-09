@@ -1,32 +1,32 @@
 import PropTypes from 'prop-types';
-import s from "./PersonDetails.module.css";
+import { Data, Poster, Title, Image, Details, List, Item, Meaning, Value, OverviewText } from "./styles";
 
 const PersonDetails = ({ person: { biography, birthday, name, place_of_birth, profile_path } }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     return (
-        <div className={s.data}>
-            <div className={s.poster}>
-                <img className={s.image} src={IMAGE_URL + profile_path} alt={name} />
-            </div>
-            <div className={s.details}>
-                <h1 className={s.title}>{name}</h1>
-                <ul className={s.list}>
-                    <li className={s.item}>
-                        <span className={s.meaning}>Birthday:</span>
-                        <span className={s.value}>{birthday}</span>
-                    </li>
-                    <li className={s.item}>
-                        <span className={s.meaning}>Place of birth:</span>
-                        <span className={s.value}>{place_of_birth}</span>
-                    </li>
-                </ul>
-                <div className={s.overview}>
+        <Data>
+            <Poster>
+                <Image src={IMAGE_URL + profile_path} alt={name} />
+            </Poster>
+            <Details>
+                <Title>{name}</Title>
+                <List>
+                    <Item>
+                        <Meaning>Birthday:</Meaning>
+                        <Value>{birthday}</Value>
+                    </Item>
+                    <Item>
+                        <Meaning>Place of birth:</Meaning>
+                        <Value>{place_of_birth}</Value>
+                    </Item>
+                </List>
+                <div>
                     <h3>Biography:</h3>
-                    <p className={s.overviewText}>{biography}</p>
+                    <OverviewText>{biography}</OverviewText>
                 </div>
-            </div>
-        </div>
+            </Details>
+        </Data>
     );
 };
 

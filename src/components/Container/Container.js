@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import s from "./Container.module.css";
+import { MainContainer } from "./styles";
 
 const Container = ({ children }) => (
-        <div className={s.container}>
+        <MainContainer>
             {children}
-        </div>
+        </MainContainer>
 );
 
 Container.propTypes = {

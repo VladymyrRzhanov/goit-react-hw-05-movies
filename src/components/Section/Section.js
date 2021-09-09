@@ -1,9 +1,9 @@
-import s from "./Section.module.css";
+import { CustomSection } from "./styles";
 
 const Section = ({children}) => (
-    <section className={s.section}>
+    <CustomSection>
         {children}
-    </section>
+    </CustomSection>
 );
 
 export default Section;

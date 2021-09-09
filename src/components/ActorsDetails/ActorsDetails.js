@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import s from "./ActorsDetails.module.css";
+// import s from "./ActorsDetails.module.css";
 import oskar from '../../images/oskar.jpg'
+import { Gallery, Item, Card, Container, Name, Character } from "./styles";
 
 
 const ActorsDetails = ({ actors, onModalOpen }) => {
@@ -9,23 +10,23 @@ const ActorsDetails = ({ actors, onModalOpen }) => {
         return <h2>Sorry, we haven't actors yet</h2>
     }
     return (
-        <ul className={s.gallery}>
+        <Gallery>
             {actors.map(({ id, character, name, profile_path }) => {
                 const foto = profile_path === null ? oskar : `${IMAGE_URL}${profile_path}`;
 
                 return (
-                    <li className={s.item} key={id}>
-                        <div className={s.card} onClick={() => onModalOpen(id)}>
-                            <img className={s.container} src={foto} alt={name} />
+                    <Item key={id}>
+                        <Card onClick={() => onModalOpen(id)}>
+                            <Container src={foto} alt={name} />
                             <div>
-                                <p className={s.name}>{name}</p>
-                                <p className={s.character}>{character}</p>
+                                <Name>{name}</Name>
+                                <Character>{character}</Character>
                             </div>
-                        </div>
-                    </li>
+                        </Card>
+                    </Item>
                 )
             })}
-        </ul>
+        </Gallery>
     );
 };
 

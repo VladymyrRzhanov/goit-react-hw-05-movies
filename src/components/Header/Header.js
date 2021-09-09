@@ -1,14 +1,14 @@
 import Container from "../Container";
-import s from "./Header.module.css";
+import { CustomHeader } from "./styles";
 
 import Navigation from "../Navigation";
 
 const Header = () => (
-    <header className={s.header}>
+    <CustomHeader>
         <Container>
             <Navigation />
         </Container>
-    </header>
+    </CustomHeader>
 );
 
 export default Header;

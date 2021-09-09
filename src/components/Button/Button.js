@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Button.module.css';
+import { BtnLoad } from "./styles";
 
 const Button = ({ text, type='button', onLoadMore=null }) => (
-  <button className={s.button} type={type} onClick={() => onLoadMore()}>
+  <BtnLoad type={type} onClick={() => onLoadMore()}>
     {text}
-  </button>
+  </BtnLoad>
 );
 
 Button.propTypes = {

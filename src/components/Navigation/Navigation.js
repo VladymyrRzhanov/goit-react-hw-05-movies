@@ -1,26 +1,26 @@
-import { NavLink, Link } from 'react-router-dom';
-import s from "./Navigation.module.css";
+import { Link } from 'react-router-dom';
+import { Container, Nav, Logo, List, Item, MenuLink } from "./styles";
 
 const Navigation = () => (
-    <div className={s.container}>
+    <Container>
         <Link to='/'>
-            <div className={s.logo}></div>
+            <Logo/>
         </Link>
-        <nav className={s.nav}>
-            <ul className={s.list}>
-                <li className={s.item}>
-                    <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
+        <Nav>
+            <List>
+                <Item>
+                    <MenuLink to="/" exact>
                         Home
-                    </NavLink>
-                </li>
-                <li className={s.item}>
-                    <NavLink to="/movies" className={s.link} activeClassName={s.activeLink}>
+                    </MenuLink>
+                </Item>
+                <Item>
+                    <MenuLink to="/movies">
                         Movies
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                    </MenuLink>
+                </Item>
+            </List>
+        </Nav>
+    </Container>
 );
 
 export default Navigation;

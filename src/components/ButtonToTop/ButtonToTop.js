@@ -1,12 +1,12 @@
-import s from "./ButtonToTop.module.css";
 import PropTypes from 'prop-types'
+import { Button, ArrowToTop } from "./styles";
 
 const ButtonToTop = ({toTop}) => (
-    <button
-        className={s.button}
+    <Button
         type='button' 
         onClick={toTop}>
-    </button>
+        <ArrowToTop/>
+    </Button>
 );
 
 ButtonToTop.propTypes = {

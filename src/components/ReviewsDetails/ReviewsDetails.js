@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import s from "./ReviewsDetails.module.css";
+import { Gallery, Item, Content, Author } from "./styles";
 
 const ReviewsDetails = ({ reviews }) => {
     if (reviews.length === 0) {
@@ -7,16 +7,16 @@ const ReviewsDetails = ({ reviews }) => {
     }
     
     return (
-        <ul className={s.gallery}>
+        <Gallery>
             {reviews.map(({ id, author, content }) => (
-                <li className={s.item} key={id}>
-                    <div className={s.card}>
-                        <p className={s.content}>{content}</p>
+                <Item key={id}>
+                    <div>
+                        <Content>{content}</Content>
                     </div>
-                    <p className={s.author}>Author: {author}</p>
-                </li>
+                    <Author>Author: {author}</Author>
+                </Item>
             ))}
-        </ul>
+        </Gallery>
     );
 };
 

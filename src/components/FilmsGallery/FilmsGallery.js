@@ -1,14 +1,14 @@
 import React from 'react';
 import FilmGalleryItem from './FilmGalleryItem';
 import PropTypes from 'prop-types';
-import s from "./FilmsGallery.module.css";
+import { Gallery } from "./styles";
 
 const FilmsGallery = ({ films }) => {
     if (films.length === 0) {
         return <h2>Sorry, we haven't films yet</h2>
     }
     return (
-        <ul className={s.gallery}>
+        <Gallery>
             {films.map(({ id, poster_path, title, name }) => (
                 <FilmGalleryItem
                     key={id}
@@ -19,7 +19,7 @@ const FilmsGallery = ({ films }) => {
                 />
                 
             ))}
-        </ul>
+        </Gallery>
     );
 }
 

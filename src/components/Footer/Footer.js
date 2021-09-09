@@ -1,17 +1,32 @@
-import s from './Footer.module.css';
 import Container from "../Container";
 import Batman from "../../images/batman.png";
+import { CustomFooter, Copyright, Profile, Link, Name } from "./styles";
 
 const Footer = () => {
     const today = new Date(),
         year = today.getFullYear()
     return (
-        <footer className={s.footer}>
+        <CustomFooter>
             <Container>
-                <p className={s.copyright}>&#169; {year} | All Rights Reserved | Developed by <a className={s.link} href='https://github.com/VladymyrRzhanov/goit-react-hw-05-movies' target="_blank" rel="noreferrer"><img className={s.profile} src={Batman} alt='batman' /><span className={s.name}>Vladymyr Rzhanov</span></a></p>
+                <Copyright>
+                    &#169; {year} | All Rights Reserved | Developed by
+                    <Link
+                        href='https://github.com/VladymyrRzhanov/goit-react-hw-05-movies'
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <Profile
+                            src={Batman}
+                            alt='batman'
+                        />
+                        <Name>
+                            Vladymyr Rzhanov
+                        </Name>
+                    </Link>
+                </Copyright>
             </Container>
-        </footer>
-    )
+        </CustomFooter>
+    );
 };
 
 export default Footer;

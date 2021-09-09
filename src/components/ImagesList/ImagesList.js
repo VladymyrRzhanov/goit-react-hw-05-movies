@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import s from "./ImagesList.module.css";
+import { Gallery, Item, Card } from "./styles";
 
 const ImagesList = ({ images, onModalOpen }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -9,21 +9,19 @@ const ImagesList = ({ images, onModalOpen }) => {
     }
 
     return (
-        <ul className={s.gallery}>
+        <Gallery>
             {images.map(({ file_path }, index) =>
-                <li
+                <Item
                     onClick={()=>onModalOpen(file_path,index)}
-                    className={s.item}
                     key={file_path}>
-                    <img
-                        className={s.card}
+                    <Card
                         src={IMAGE_URL + file_path}
                         id={index}
                         alt={file_path}
                     />
-                </li>
+                </Item>
             )}
-        </ul>
+        </Gallery>
     );
 };
 

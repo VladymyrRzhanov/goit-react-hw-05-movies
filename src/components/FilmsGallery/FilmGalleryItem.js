@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import slugify from "slugify";
 import PropTypes from 'prop-types';
-import s from './FilmsGallery.module.css';
 import oskar from '../../images/oskar.jpg'
+import { FilmLink, Item, Card, Container, GalleryImage, Title } from "./styles";
 
 const FilmGalleryItem = ({ id, filmId, poster, title }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -11,24 +11,23 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
     const foto = poster === null ? oskar : `${IMAGE_URL}${poster}`;
     
     return (
-        <li className={s.item}>
-            <Link className={s.link}
+        <Item>
+            <FilmLink
                 to={{
                     pathname: `/movies/${slugify(`${title} ${id}`, { lower: true, strict: true })}`,
                     state: { from: location }
                 }}>
-                <div className={s.card} id={filmId}>
-                    <div className={s.container}>
-                        <img
-                            className={s.galleryImage}
+                <Card id={filmId}>
+                    <Container>
+                        <GalleryImage
                             src={foto}
                             alt={title}
                         />
-                    </div>
-                    <p className={s.title}>{title}</p>
-                </div>
-            </Link>
-        </li>
+                    </Container>
+                    <Title>{title}</Title>
+                </Card>
+            </FilmLink>
+        </Item>
     );
 };
 

@@ -1,5 +1,5 @@
-import s from "./Filter.module.css";
 import PropTypes from 'prop-types';
+import { Form, Input, Button } from "./styles";
 
 const Filter = ({ handleChange, onSearch }) => {
     const handleSubmit = e => {
@@ -8,23 +8,20 @@ const Filter = ({ handleChange, onSearch }) => {
     }
     
     return (
-        <form
-            className={s.form}
+        <Form
             onSubmit={handleSubmit}>
             
-            <input
-                className={s.input}
+            <Input
                 type="text"
                 autoComplete="on"
                 autoFocus
                 placeholder="Enter the movie"
                 onChange={handleChange} />
-            <button
-                className={s.button}
+            <Button
                 type='submit'>
                 Search
-            </button>
-    </form>
+            </Button>
+    </Form>
     )
 }
 
