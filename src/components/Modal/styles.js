@@ -17,3 +17,9 @@ export const CustomModal = styled.div`
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
 `;
+
+export const Image = styled.img`
+width: 100%;
+height: auto;
+display: block;
+`;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { ReactComponent as SaitLogo } from "../../images/logo.svg";
+import { ReactComponent as SaitLogoMob } from "../../images/logomob.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -15,9 +16,21 @@ export const Nav = styled.nav`
   align-items: center;
 `;
 
-export const Logo = styled(SaitLogo)`
+export const LogoMob = styled(SaitLogoMob)`
+width: 50px;
+height: 50px;
+@media screen and (min-width: 768px) {
+  display: none;
+  }
+`;
+
+export const LogoBig = styled(SaitLogo)`
+display: none;
+@media screen and (min-width: 768px) {
+  display: block;
   width: 200px;
   height: 50px;
+  }
 `;
 
 export const List = styled.ul`

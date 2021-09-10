@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Gallery = styled.ul`
+padding-bottom: 30px;
+@media screen and (min-width: 768px) {
+   
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: -15px;
-  padding-bottom: 30px;
+}
 `;
 
 export const FilmLink = styled(Link)`
@@ -14,10 +17,13 @@ export const FilmLink = styled(Link)`
 `;
 
 export const Item = styled.li`
+@media screen and (min-width: 768px) {
+   
   display: flex;
   flex-basis: calc((100% - 5 * 10px) / 5);
   margin: 5px;
   border-radius: 2px;
+}
 
 &:not(:last-child) {
   margin-bottom: 40px;
@@ -25,10 +31,8 @@ export const Item = styled.li`
 `;
 
 export const Card = styled.div`
-  width: 220px;
   position: relative;
   cursor: pointer;
-  border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -38,8 +42,6 @@ export const Card = styled.div`
 
 export const Container = styled.div`
   position: relative;
-  width: 220px;
-  height: 330px;
   margin-bottom: 10px;
   border-radius: 5px;
   object-fit: contain;
@@ -53,6 +55,7 @@ export const Container = styled.div`
 export const GalleryImage = styled.img`
   display: block;
   height: 100%;
+  width: 100%;
 `;
 
 export const Title = styled.p`

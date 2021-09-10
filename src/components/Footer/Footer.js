@@ -15,9 +15,9 @@ const Footer = () => {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Name>
+                        {/* <Name> */}
                             Vladymyr Rzhanov
-                        </Name>
+                        {/* </Name> */}
                     </Link>
                 </Copyright>
             </Container>

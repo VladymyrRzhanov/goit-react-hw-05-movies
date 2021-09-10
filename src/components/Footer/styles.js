@@ -11,24 +11,24 @@ export const CustomFooter = styled.footer`
 export const Copyright = styled.p`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  color: #000;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgb(0 0 0);
 `;
 
-export const Name = styled.span`
-font-size: 14px;
-`;
+// export const Profile = styled.img`
+//   width: 30px;
 
-export const Profile = styled.img`
-  width: 30px;
-
-  &:hover ~ ${Name} {
-  opacity: 1;
-}
-`;
+//   &:hover ~ ${Name} {
+//   opacity: 1;
+// }
+// `;
 
 export const Link = styled.a`
   text-decoration: none;
+  color: rgb(0 0 0);
 `;
 
 

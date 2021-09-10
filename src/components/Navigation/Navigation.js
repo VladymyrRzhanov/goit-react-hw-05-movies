@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Container, Nav, Logo, List, Item, MenuLink } from "./styles";
+import { Container, Nav, LogoMob, LogoBig, List, Item, MenuLink } from "./styles";
 
 const Navigation = () => (
     <Container>
-        {/* <Link to='/'>
-            <Logo/>
-        </Link> */}
+        <Link to='/'>
+            <LogoMob />
+            <LogoBig/>
+        </Link>
         <Nav>
             <List>
                 <Item>

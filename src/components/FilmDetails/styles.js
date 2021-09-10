@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as Play } from "../../images/play.svg";
 
 export const Card = styled.div`
-  /* padding: 0 100px; */
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 `;
 
 export const Data = styled.div`
@@ -56,13 +55,13 @@ height: auto;
 
 export const Title = styled.h1`
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 700;
 `;
 
 export const Tagline = styled.h2`
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
 `;
 
@@ -89,14 +88,14 @@ export const Item = styled.li`
 
 export const Meaning = styled.span`
   width: 30%;
-  margin-right: 20px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-align: left;
 `;
 
 export const Value = styled.span`
   width: 70%;
+  font-size: 12px;
   text-align: left;
   word-wrap: break-word;
 `;
@@ -107,20 +106,21 @@ export const OverviewTitle = styled.h3`
 
 export const OverviewText = styled.p`
   text-align: justify;
+  font-size: 12px;
 `;
 
 export const Info = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `;
 
 export const InfoItem = styled.li`
   list-style: none;
 
 &:not(:last-child) {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 `;
 
@@ -129,8 +129,8 @@ export const LinkInfo = styled(NavLink)`
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 23px 0;
-  font-size: 12px;
+  padding: 10px 0;
+  font-size: 10px;
   color: rgb(0 0 0);
   line-height: 14px;
   letter-spacing: 0.4px;
@@ -146,8 +146,6 @@ export const LinkInfo = styled(NavLink)`
 `;
 
 export const ButtonContainer = styled.div`
-  width: 180px;
-  margin-right: auto;
   margin-bottom: 30px;
 `;
 

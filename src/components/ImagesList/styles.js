@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Gallery = styled.ul`
+  padding-bottom: 30px;
+@media screen and (min-width: 768px) {
   display: flex;
   flex-wrap: wrap;
   margin: -15px;
-  padding-bottom: 30px;
+  }
 `;
 
 export const Item = styled.li`

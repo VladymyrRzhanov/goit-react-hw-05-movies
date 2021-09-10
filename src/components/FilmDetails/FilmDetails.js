@@ -73,7 +73,6 @@ const FilmDetails = ({ film, onModalOpen }) => {
                 </div>
                 </Card>
                 <Info>
-
                     <InfoItem>
                         <LinkInfo
                             exact
