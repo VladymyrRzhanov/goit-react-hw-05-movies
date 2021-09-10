@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as FilmsApi from "../../service/apiFilmsService";
 import PropTypes from 'prop-types';
-import { Trailer } from "./styles";
+import { Trailer, TrailerContainer } from "./styles";
 
 const ModalTrailer = ({ trailerId }) => {
     const [trailers, setTrailers] = useState([])
@@ -25,14 +25,15 @@ const ModalTrailer = ({ trailerId }) => {
         <>
             {movieTrailer ?
                 (
-                    <Trailer
+                    <TrailerContainer>
+                        <Trailer
                         width="1120"
                         height="630"
                         src={`https://www.youtube.com/embed/${movieTrailer.key}`}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                    
                     </Trailer>
+                    </TrailerContainer>
                 ) :
                 <h1>{error.message}</h1>}
         </>

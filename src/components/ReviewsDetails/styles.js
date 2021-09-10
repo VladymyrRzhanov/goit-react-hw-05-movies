@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Gallery = styled.ul`
-  text-align: justify;
-  font-size: 12px;
+  
 `;
 
 export const Item = styled.li`
@@ -15,6 +14,16 @@ export const Item = styled.li`
 
 export const Content = styled.p`
   margin-bottom: 20px;
+  text-align: left;
+  font-size: 12px;
+
+  @media screen and (min-width: 768px) {
+      font-size: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
 `;
 
 export const Author = styled.p`

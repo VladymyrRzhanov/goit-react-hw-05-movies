@@ -11,9 +11,13 @@ margin-bottom: 20px;
 `;
 
 export const Item = styled.li`
+display: flex;
+  flex-basis: calc((100% - 2 * 10px) / 2);
   margin: 5px;
 `
 export const VideoContainer = styled.iframe`
-width: 100%;
+  width: 100%;
+@media screen and (max-width: 1200px) {
 height: auto;
+  }
 `;

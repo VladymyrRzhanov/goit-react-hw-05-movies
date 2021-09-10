@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 export const Gallery = styled.ul`
 padding-bottom: 30px;
 @media screen and (min-width: 768px) {
-   
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: -5px;
+}
+@media screen and (min-width: 1200px) {
   margin: -15px;
 }
 `;
@@ -17,8 +19,13 @@ export const FilmLink = styled(Link)`
 `;
 
 export const Item = styled.li`
-@media screen and (min-width: 768px) {
-   
+@media screen and (min-width: 768px) {  
+  display: flex;
+  flex-basis: calc((100% - 4 * 10px) / 4);
+  margin: 5px;
+  border-radius: 2px;
+}
+@media screen and (min-width: 1200px) {  
   display: flex;
   flex-basis: calc((100% - 5 * 10px) / 5);
   margin: 5px;
@@ -26,7 +33,7 @@ export const Item = styled.li`
 }
 
 &:not(:last-child) {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 `;
 

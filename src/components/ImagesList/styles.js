@@ -2,18 +2,25 @@ import styled from 'styled-components';
 
 export const Gallery = styled.ul`
   padding-bottom: 30px;
-@media screen and (min-width: 768px) {
   display: flex;
   flex-wrap: wrap;
-  margin: -15px;
-  }
+  margin: -10px;
+  
 `;
 
 export const Item = styled.li`
   display: flex;
-  flex-basis: calc((100% - 8 * 10px) / 8);
+  flex-basis: calc((100% - 2 * 10px) / 2);
   margin: 5px;
   border-radius: 2px;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 4 * 10px) / 4);
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc((100% - 8 * 10px) / 8);
+  }
 `;
 
 export const Card = styled.img`

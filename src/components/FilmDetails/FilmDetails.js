@@ -24,7 +24,6 @@ const FilmDetails = ({ film, onModalOpen }) => {
             <ButtonContainer>
                 <Button text={'Go back'} type={'button'} onLoadMore={onGoBack} />
             </ButtonContainer>
-            <Card>
                 <Data>
                     <Poster onClick={() => onModalOpen(id)}>
                         <PosterImg src={poster} alt={title} />
@@ -64,14 +63,12 @@ const FilmDetails = ({ film, onModalOpen }) => {
                             </Item>
                             
                         </List>
-                    </Details>
-                </Data>
-                
                 <div className={s.overview}>
                     <OverviewTitle>Overview:</OverviewTitle>
                     <OverviewText>{overview}</OverviewText>
                 </div>
-                </Card>
+                    </Details>
+                </Data>
                 <Info>
                     <InfoItem>
                         <LinkInfo

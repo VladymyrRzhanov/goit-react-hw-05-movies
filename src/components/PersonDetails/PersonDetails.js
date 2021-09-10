@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Data, Poster, Title, Image, Details, List, Item, Meaning, Value, OverviewText, OverviewTitle } from "./styles";
+import { Data, Poster, Title, Image, Details, List, Item, Meaning, Value, OverviewText } from "./styles";
 
 const PersonDetails = ({ person: { biography, birthday, name, place_of_birth, profile_path } }) => {
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -22,7 +22,7 @@ const PersonDetails = ({ person: { biography, birthday, name, place_of_birth, pr
                     </Item>
                 </List>
                 <div>
-                    <OverviewTitle>Biography:</OverviewTitle>
+                    <h3>Biography:</h3>
                     <OverviewText>{biography}</OverviewText>
                 </div>
             </Details>

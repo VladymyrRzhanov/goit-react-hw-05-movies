@@ -2,16 +2,12 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Play } from "../../images/play.svg";
 
-export const Card = styled.div`
-  margin-bottom: 15px;
-`;
-
 export const Data = styled.div`
   margin-bottom: 30px;
   
   @media screen and (min-width: 768px) {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   }
 `;
@@ -39,12 +35,14 @@ export const Poster = styled.div`
 
 &:hover, &:focus {
   opacity: 0.7;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 100px;
-    margin-bottom: 0;
-  }
 }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    margin-right: 30px;
+  }
 `;
 
 export const PosterImg = styled.img`
@@ -54,26 +52,35 @@ height: auto;
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 20px;
   font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+      font-size: 30px;
+  }
 `;
 
 export const Tagline = styled.h2`
   margin-bottom: 20px;
   font-size: 14px;
   font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+      font-size: 18px;
+      margin-bottom: 40px;
+  }
 `;
 
 export const Details = styled.div`
-  /* width: 700px; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: stretch; */
+   @media screen and (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const List = styled.ul`
   width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const Item = styled.li`
@@ -91,6 +98,14 @@ export const Meaning = styled.span`
   font-size: 12px;
   font-weight: 700;
   text-align: left;
+  @media screen and (min-width: 768px) {
+    width: 40%;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
 `;
 
 export const Value = styled.span`
@@ -98,6 +113,13 @@ export const Value = styled.span`
   font-size: 12px;
   text-align: left;
   word-wrap: break-word;
+  @media screen and (min-width: 768px) {
+    width: 60%;
+    font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
 `;
 
 export const OverviewTitle = styled.h3`
@@ -105,15 +127,26 @@ export const OverviewTitle = styled.h3`
 `;
 
 export const OverviewText = styled.p`
-  text-align: justify;
+  text-align: left;
   font-size: 12px;
+
+  @media screen and (min-width: 768px) {
+      font-size: 14px;
+  }
+  
+  @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
 `;
 
 export const Info = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const InfoItem = styled.li`
@@ -134,6 +167,13 @@ export const LinkInfo = styled(NavLink)`
   color: rgb(0 0 0);
   line-height: 14px;
   letter-spacing: 0.4px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 
 & .activeLinkInfo {
   color: rgb(60 180 231);

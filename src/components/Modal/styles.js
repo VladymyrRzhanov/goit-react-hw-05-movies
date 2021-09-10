@@ -24,8 +24,14 @@ width: 100%;
 height: auto;
 display: block;
 `;
+export const TrailerContainer = styled.div`
+@media screen and (min-width: 768px) {
+  width: 720px;
+      height: 400px;
+  }
+`;
 
 export const Trailer = styled.iframe`
 width: 100%;
-height: auto;
+height: 100%;
 `;

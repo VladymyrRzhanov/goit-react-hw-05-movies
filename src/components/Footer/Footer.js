@@ -16,7 +16,7 @@ const Footer = () => {
                         rel="noreferrer"
                     >
                         {/* <Name> */}
-                            Vladymyr Rzhanov
+                             Vladymyr Rzhanov
                         {/* </Name> */}
                     </Link>
                 </Copyright>
