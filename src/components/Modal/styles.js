@@ -7,6 +7,7 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow-y: scroll;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
@@ -22,4 +23,9 @@ export const Image = styled.img`
 width: 100%;
 height: auto;
 display: block;
+`;
+
+export const Trailer = styled.iframe`
+width: 100%;
+height: auto;
 `;
