@@ -2,32 +2,75 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  width: 100%;
+  max-width: 150px;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    max-width: 300px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 500px;
+  }
 `;
 
 export const Input = styled.input`
-  width: 25%;
-  margin-right: 30px;
-  padding: 10px 15px;
-  font-size: 20px;
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const Button = styled.button`
-  display: block;
-  font-size: 20px;
-  padding: 10px 25px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-image: url("https://image.flaticon.com/icons/svg/149/149852.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  color: #fff;
-  background-color: rgb(60 180 231);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border-color: transparent;
-  transition: 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  outline: none;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 48px;
+    height: 48px;
+  }
 
 &:hover,
 &:focus {
-  background-color: rgb(4 133 187);
+  opacity: 1;
 }
+`;
+
+export const BtnLabel = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
 `;

@@ -1,28 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom'
-import Filter from "../components/Filter";
+import { useLocation } from 'react-router-dom'
 import * as FilmsApi from "../service/apiFilmsService";
 import FilmsGallery from "../components/FilmsGallery";
 
 const MoviesPage = () => {
-    const [query, setQuery] = useState('');
-    const [searchFilms, setSearchFilms] = useState(null)
-    const [error, setError] = useState(null)
-    const history = useHistory();
+    const [searchFilms, setSearchFilms] = useState(null);
+    const [error, setError] = useState(null);
     const location = useLocation();
 
-    const handleChange = ({ target: { value } }) => {
-        setQuery(value)
-    };
-
     const searchQuery = new URLSearchParams(location.search).get('query') ?? '';
-
-    const onSearch = () => {
-        history.push({
-            ...location,
-            search: `query=${query}`
-        });
-    };
 
     useEffect(() => {
         if (!searchQuery) {
@@ -39,7 +25,6 @@ const MoviesPage = () => {
     return (
         <>
             {error && <h1>{error.message}</h1>}
-            <Filter handleChange={handleChange} onSearch={onSearch} />
             {searchFilms && <FilmsGallery films={searchFilms} />}
         </>
     )

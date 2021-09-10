@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Filter from "../Filter";
 import { Container, Nav, LogoMob, LogoBig, List, Item, MenuLink } from "./styles";
 
 const Navigation = () => (
@@ -7,6 +8,7 @@ const Navigation = () => (
             <LogoMob />
             <LogoBig/>
         </Link>
+        <Filter/>
         <Nav>
             <List>
                 <Item>

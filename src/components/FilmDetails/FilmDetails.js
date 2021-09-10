@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from "../Button";
 import oskar from '../../images/oskar.jpg'
 import s from "./FilmDetails.module.css";
-import { Card, Data, Poster, Title, Tagline, Details, List, Item, Meaning, Value, OverviewTitle, OverviewText, Info, InfoItem, LinkInfo, ButtonContainer, PosterImg, BtnPlay } from "./styles";
+import { Data, Poster, Title, Tagline, Details, List, Item, Meaning, Value, OverviewTitle, OverviewText, Info, InfoItem, LinkInfo, ButtonContainer, PosterImg, BtnPlay } from "./styles";
 
 const FilmDetails = ({ film, onModalOpen }) => {
     const { url } = useRouteMatch();
