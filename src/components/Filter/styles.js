@@ -4,7 +4,7 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 120px;
+  max-width: 125px;
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;

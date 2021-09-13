@@ -6,9 +6,9 @@ export const Data = styled.div`
   margin-bottom: 30px;
   
   @media screen and (min-width: 768px) {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 `;
 
@@ -40,7 +40,7 @@ export const Poster = styled.div`
     margin-bottom: 20px;
   }
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     margin-right: 30px;
   }
 `;
