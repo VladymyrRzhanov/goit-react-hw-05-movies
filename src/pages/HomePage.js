@@ -4,6 +4,7 @@ import FilmsGallery from "../components/FilmsGallery";
 import Button from "../components/Button";
 import ButtonToTop from "../components/ButtonToTop";
 import Loader from "../components/Loader";
+import PagePagination from "../components/Pagination";
 
 const HomePage = () => {
     const [films, setFilms] = useState([]);
@@ -41,7 +42,14 @@ const HomePage = () => {
             <FilmsGallery films={films} />
             {error && <h1>{error.message}</h1>}
             {loading && <Loader />}
-            {films.length % 20 === 0 && !!films.length && (<Button text={'Load more'} type={'button'} onLoadMore={() => setPage(state => state + 1)} />)}
+            {films.length % 20 === 0 && !!films.length && <PagePagination/>
+                
+                // (
+                // <Button text={'Load more'} type={'button'} onLoadMore={() => setPage(state => state + 1)}
+                //     />
+                // )
+            }
+            
             {top && <ButtonToTop toTop={toTop}/>}
         </>
     );
