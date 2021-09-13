@@ -55,14 +55,6 @@ export const Container = styled.div`
   overflow: hidden;
   filter: drop-shadow(4px 4px 4px rgba(140, 140, 140, 0.6));
   box-shadow: 0 0 20px hsl(0deg 0% 55% / 50%);
-
-  @media screen and (min-width: 768px) {
-    height: 265px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    height: 345px;
-  }
 `;
 
 

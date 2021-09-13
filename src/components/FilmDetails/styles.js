@@ -40,7 +40,7 @@ export const Poster = styled.div`
     margin-bottom: 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 1199px) {
     margin-right: 30px;
   }
 `;

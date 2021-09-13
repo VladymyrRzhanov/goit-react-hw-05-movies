@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-import { Form, Input, Button, BtnLabel } from "./styles";
+import { Form, Input, Button, ButtonLabel } from "./styles";
 
 const Filter = () => {
     const [query, setQuery] = useState('');
     const history = useHistory();
-    
-    const handleInputChange = ({ target: { value } }) => {
+
+    const handleChange = ({ target: { value } }) => {
         setQuery(value);
-    };
-    
-    const handleSubmit = e => {
-        e.preventDefault();
-        history.push({ pathname: '/movies', search: `query=${query}` });
-        reset();
-    
     };
 
     const reset = () => {
         setQuery('');
     };
+
+    const onSearch = () => {
+        history.push({
+            pathname: '/movies',
+            search: `query=${query}`
+        });
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        onSearch()
+        reset();
+    }
     
     return (
         <Form
@@ -28,18 +34,17 @@ const Filter = () => {
             <Button
                 type='submit'
             >
-                <BtnLabel>
+                <ButtonLabel>
                     Search
-                </BtnLabel>
+                </ButtonLabel>
             </Button>
             <Input
-                name="name"
-                value={query}
                 type='text'
+                value={query}
                 autoComplete="off"
                 autoFocus
                 placeholder="Search movies"
-                onChange={handleInputChange}
+                onChange={handleChange}
             />
         </Form>
     );

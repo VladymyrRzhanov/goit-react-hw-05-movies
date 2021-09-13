@@ -1,29 +1,40 @@
 import { Link } from 'react-router-dom';
-import Filter from "../Filter";
-import { Container, Nav, LogoMob, LogoBig, List, Item, MenuLink } from "./styles";
+import React, { useState } from 'react';
+import Modal from "../Modal/Modal";
+import { Container, Nav, LogoMob, LogoBig, BtnAuth } from "./styles";
+import AuthModal from '../Modal/AuthModal';
+import Filter from '../Filter';
 
-const Navigation = () => (
-    <Container>
-        <Link to='/'>
-            <LogoMob />
-            <LogoBig/>
-        </Link>
-        <Filter/>
-        <Nav>
-            <List>
-                <Item>
-                    <MenuLink to="/" exact>
-                        Home
-                    </MenuLink>
-                </Item>
-                <Item>
-                    <MenuLink to="/movies">
-                        Movies
-                    </MenuLink>
-                </Item>
-            </List>
-        </Nav>
-    </Container>
-);
+const Navigation = () => {
+    const [modalShow, setModalShow] = useState(false);
+
+    const toggleModal = () => {
+        setModalShow(!modalShow);
+    };
+
+    return (
+        <Container>
+            <Link to='/'>
+                <LogoMob />
+                <LogoBig />
+            </Link>
+            <Filter />
+            <Nav>
+                <BtnAuth type='button' onClick={toggleModal}>
+                    Authentication
+                </BtnAuth>
+                {modalShow &&
+                    <Modal
+                        onClose={toggleModal}
+                    >
+                        <AuthModal
+                        />
+                    </Modal>
+                }
+
+            </Nav>
+        </Container>
+    );
+}
 
 export default Navigation;

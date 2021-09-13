@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 import * as FilmsApi from "../service/apiFilmsService";
 import FilmsGallery from "../components/FilmsGallery";
 
 const MoviesPage = () => {
-    const [searchFilms, setSearchFilms] = useState(null);
-    const [error, setError] = useState(null);
+    const [searchFilms, setSearchFilms] = useState(null)
+    const [error, setError] = useState(null)
     const location = useLocation();
 
     const searchQuery = new URLSearchParams(location.search).get('query') ?? '';
