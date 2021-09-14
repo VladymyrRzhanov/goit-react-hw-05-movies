@@ -1,26 +1,25 @@
 import * as FilmsApi from '../service/apiFilmsService';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import FilmsGallery from "../components/FilmsGallery";
-// import ButtonToTop from "../components/ButtonToTop";
+import { getPage } from "../redux/filmsPage/filmsPage-selector";
 import Loader from "../components/Loader";
 import PagePagination from "../components/Pagination";
 
 const HomePage = () => {
     const [films, setFilms] = useState([]);
-    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    // const [top, setTop] = useState(false);
-
-    const pageSwitch = (event, value) => {
-        setPage(value)
-    }
+    const page = useSelector(getPage);
 
     useEffect(() => {
         setLoading(true)
         FilmsApi.fetchTrendingMovies(page)
-            .then(({ results }) =>
-                setFilms(prevState => [...results])
+            .then(({ results, total_pages }) => {
+                setFilms([...results]);
+                setTotalPage(Number(total_pages))
+            }
             )
             .catch(error => setError(error))
             .finally(() => setLoading(false));
@@ -30,16 +29,8 @@ const HomePage = () => {
         if (page === 1) {
             return
         }
-        // setTop(true)
     }, [page]);
-    
-    // const toTop = () => {
-    //     window.scrollTo({
-    //         top: 0,
-    //         behavior: 'smooth',
-    //     });
-    // };
-    
+
     return (
         <>
             <FilmsGallery films={films} />
@@ -47,10 +38,9 @@ const HomePage = () => {
             {loading && <Loader />}
             {films.length % 20 === 0 && !!films.length &&
                 <PagePagination
-                    pageSwitch={pageSwitch}
+                    totalPage={totalPage}
                 />
             }
-            {/* {top && <ButtonToTop toTop={toTop} />} */}
         </>
     );
 };

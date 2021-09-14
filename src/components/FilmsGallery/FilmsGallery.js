@@ -5,7 +5,7 @@ import { Gallery } from "./styles";
 
 const FilmsGallery = ({ films }) => {
     if (films.length === 0) {
-        return <h2>Sorry, we haven't films yet</h2>
+        return <h2>Sorry, we haven't this film yet</h2>
     }
     return (
         <Gallery>

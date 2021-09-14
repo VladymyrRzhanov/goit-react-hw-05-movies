@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { filmsPageActions } from "../../redux/filmsPage/filmsPage-actions";
 import { Form, Input, Button, ButtonLabel } from "./styles";
 
 const Filter = () => {
     const [query, setQuery] = useState('');
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleChange = ({ target: { value } }) => {
         setQuery(value);
@@ -22,8 +25,9 @@ const Filter = () => {
     };
 
     const handleSubmit = e => {
-        e.preventDefault()
-        onSearch()
+        e.preventDefault();
+        onSearch();
+        dispatch(filmsPageActions(1));
         reset();
     }
     

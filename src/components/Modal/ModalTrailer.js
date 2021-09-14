@@ -31,7 +31,8 @@ const ModalTrailer = ({ trailerId }) => {
                             height="630"
                             src={`https://www.youtube.com/embed/${movieTrailer.key}`}
                             title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        >
                         </Trailer>
                     </TrailerContainer>
                 ) :

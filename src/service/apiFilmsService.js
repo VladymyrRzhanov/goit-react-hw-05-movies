@@ -6,8 +6,8 @@ export const fetchTrendingMovies = async (page) => {
         .then(response => response.json())
 };
 
-export const fetchSearchMovie = async (query) => {
-    return await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`)
+export const fetchSearchMovie = async (query, page) => {
+    return await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${page}&include_adult=false&query=${query}`)
         .then(response => response.json())
 };
 
