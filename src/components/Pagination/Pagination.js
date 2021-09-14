@@ -5,17 +5,20 @@ import PropTypes from 'prop-types'
 import { getPage } from "../../redux/filmsPage/filmsPage-selector";
 import { useSelector, useDispatch } from 'react-redux';
 import { filmsPageActions } from "../../redux/filmsPage/filmsPage-actions";
+import { PaginList } from "./styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       // marginTop: theme.spacing(2),
+      minWidth: '20px',
     },
   },
   ul: {
     display: 'flex',
     justifyContent: 'center',
   }
+
 }));
 
 const PagePagination = ({totalPage}) => {
@@ -24,12 +27,13 @@ const PagePagination = ({totalPage}) => {
   const page = Number(useSelector(getPage));
   
   const pageSwitch = (e, value) => {
-    dispatch(filmsPageActions(value))
+    dispatch(filmsPageActions(value));
   };
   
   return (
     <div className={classes.root}>
       <Pagination className={classes.ul}
+        // size="small"
         page={page}
         color="primary"
         count={Number(totalPage)}

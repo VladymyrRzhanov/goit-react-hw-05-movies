@@ -13,7 +13,15 @@ const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const page = useSelector(getPage);
 
+    const toTop = () => {
+        window.scrollTo = {
+            top: 0,
+            behavior: "smooth"
+        }
+    };
+
     useEffect(() => {
+        toTop()
         setLoading(true)
         FilmsApi.fetchTrendingMovies(page)
             .then(({ results, total_pages }) => {
@@ -22,7 +30,9 @@ const HomePage = () => {
             }
             )
             .catch(error => setError(error))
-            .finally(() => setLoading(false));
+            .finally(() => {
+                setLoading(false);
+            });
     }, [page]);
 
     useEffect(() => {

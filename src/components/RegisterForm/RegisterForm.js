@@ -11,6 +11,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import db from "../../firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
 
@@ -62,9 +64,12 @@ const RegisterForm = () => {
                 return;
         };
     };
-
     const handleSubmit = e => {
         e.preventDefault();
+        
+        const auth=getAuth()
+        console.log(db)
+        console.log(auth)
         // dispatch(authUserOperations.createUser({ name, email, password }));
         reset();
     };
