@@ -1,24 +1,37 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
+import { getPage } from "../../redux/filmsPage/filmsPage-selector";
+import { useSelector, useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      marginTop: theme.spacing(2),
+      // marginTop: theme.spacing(2),
     },
   },
+  ul: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
 }));
 
-const PagePagination=()=> {
+const PagePagination = ({ pageSwitch }) => {
   const classes = useStyles();
+  const takePage = useSelector(getPage);
+  const dispatch = useDispatch();
 
+  
+  console.log(takePage)
   return (
     <div className={classes.root}>
-      {/* <Pagination count={10} size="small" /> */}
-      <Pagination count={10} />
-      {/* <Pagination count={10} size="large" /> */}
+      <Pagination className={classes.ul}
+        count={1000}
+        shape="rounded"
+        onChange={(event, value) => pageSwitch(event, value)}
+      />
     </div>
   );
-}
+};
+
 export default PagePagination;
