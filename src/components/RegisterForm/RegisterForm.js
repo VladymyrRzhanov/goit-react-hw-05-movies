@@ -1,5 +1,6 @@
 import React, { useState,  } from 'react';
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import * as AuthUserOperation from "../../redux/authUser/authUser-operation";
 // import * as authUserOperations from "redux/authUser/authUser-operations";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import clsx from 'clsx';
@@ -12,12 +13,11 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import auth from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
 
 const RegisterForm = ({ onClose }) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -65,18 +65,10 @@ const RegisterForm = ({ onClose }) => {
         };
     };
 
-    const createUser = async() => {
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        } catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        }
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
-        createUser()
+        const displayName = name;
+        dispatch(AuthUserOperation.createUser({auth, email, password, displayName}))
         reset();
         onClose()
     };

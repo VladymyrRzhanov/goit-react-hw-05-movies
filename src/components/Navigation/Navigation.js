@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { filmsPageActions } from "../../redux/filmsPage/filmsPage-actions";
-import Modal from "../Modal/Modal";
-import { Container, Nav, LogoMob, LogoBig, BtnAuth } from "./styles";
-import AuthModal from '../Modal/AuthModal';
+import { getIsLoggeIn } from "../../redux/authUser/authUser-selector";
 import Filter from '../Filter';
+import Auth from "../Auth";
+import FilmsLibrary from "../FilmsLibrary";
+import { Container, Nav, LogoMob, LogoBig,  } from "./styles";
 
 const Navigation = () => {
-    const [modalShow, setModalShow] = useState(false);
+    const isLoggedIn = useSelector(getIsLoggeIn);
     const dispatch = useDispatch()
-
-    const toggleModal = () => {
-        setModalShow(!modalShow);
-    };
 
     return (
         <Container>
@@ -23,18 +20,7 @@ const Navigation = () => {
             </Link>
             <Filter />
             <Nav>
-                <BtnAuth type='button' onClick={toggleModal}>
-                    Authentication
-                </BtnAuth>
-                {modalShow &&
-                    <Modal
-                        onClose={toggleModal}
-                    >
-                        <AuthModal onClose={toggleModal}
-                        />
-                    </Modal>
-                }
-
+                {isLoggedIn ? <FilmsLibrary /> : <Auth />}
             </Nav>
         </Container>
     );

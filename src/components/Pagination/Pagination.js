@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { getPage } from "../../redux/filmsPage/filmsPage-selector";
 import { useSelector, useDispatch } from 'react-redux';
 import { filmsPageActions } from "../../redux/filmsPage/filmsPage-actions";
-import { PaginList } from "./styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +32,7 @@ const PagePagination = ({totalPage}) => {
   return (
     <div className={classes.root}>
       <Pagination className={classes.ul}
-        // size="small"
+        size="small"
         page={page}
         color="primary"
         count={Number(totalPage)}

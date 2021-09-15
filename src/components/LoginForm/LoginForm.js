@@ -1,5 +1,6 @@
 import React, { useState,  } from 'react';
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import * as authUserOperation from "../../redux/authUser/authUser-operation";
 // import * as authUserOperations from "redux/authUser/authUser-operations";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,11 +13,10 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import auth from "../../firebase";
-import { signInWithEmailAndPassword  } from "firebase/auth";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
 const LoginForm = ({onClose}) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showpassword, setShowpassword] = useState(false);
@@ -60,20 +60,9 @@ const LoginForm = ({onClose}) => {
         };
     };
 
-    const signIn = async () => {
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password)
-            console.log(userCredential)
-        } catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        }
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
-        signIn()
-        // dispatch(authUserOperations.loginUser({ email, password }));
+        dispatch(authUserOperation.loginUser({auth, email, password}))
         reset();
         onClose();
     };
