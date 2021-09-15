@@ -11,12 +11,12 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import db from "../../firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
 
-const RegisterForm = () => {
+const RegisterForm = ({ onClose }) => {
     // const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -64,14 +64,21 @@ const RegisterForm = () => {
                 return;
         };
     };
+
+    const createUser = async() => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        }
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
-        
-        const auth=getAuth()
-        console.log(db)
-        console.log(auth)
-        // dispatch(authUserOperations.createUser({ name, email, password }));
+        createUser()
         reset();
+        onClose()
     };
 
 
@@ -131,7 +138,7 @@ const RegisterForm = () => {
                         labelWidth={70}
                     />
                 </CustomForm>
-            <Button type="submit"><BtnText>Register</BtnText><ArrowUpwardIcon width="32" height="32" /></Button>
+            <Button type="submit"><BtnText>Registration</BtnText><ArrowUpwardIcon width="32" height="32" /></Button>
         </ContactForm>
     );
 };

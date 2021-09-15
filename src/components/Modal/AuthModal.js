@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthModal = () => {
+const AuthModal = ({onClose}) => {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -62,36 +62,36 @@ const AuthModal = () => {
         setValue(index);
     };
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    aria-label="full width tabs example"
-                >
-                    <Tab label="Registration" {...a11yProps(0)} />
-                    <Tab label="Log in">
-                    </Tab>
-                </Tabs>
-            </AppBar>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={value}
-                onChangeIndex={handleChangeIndex}
-            >
-                <TabPanel value={value} index={0} dir={theme.direction}>
-                    <RegisterForm />
-                </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                   <LoginForm/>
-                </TabPanel>
-            </SwipeableViews>
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="full width tabs example"
+        >
+          <Tab label="Registration" {...a11yProps(0)} />
+          <Tab label="Log in">
+          </Tab>
+        </Tabs>
+      </AppBar>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          <RegisterForm onClose={onClose} />
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <LoginForm onClose={onClose} />
+        </TabPanel>
+      </SwipeableViews>
+    </div>
+  );
 };
 
 export default AuthModal;

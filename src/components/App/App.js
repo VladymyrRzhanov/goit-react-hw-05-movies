@@ -5,8 +5,11 @@ import Header from "../Header";
 import Section from "../Section";
 import Loader from "../Loader";
 import Footer from "../Footer";
+import PrivateRoute from "../Routes/PrivateRoute";
+import PublicRoute from "../Routes/PublicRoute";
 const HomePage = lazy(() => import('../../pages/HomePage' /* webpackChunkName: "home-page" */));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */));
+const LibraryPage = lazy(() => import('../../pages/LibraryPage' /* webpackChunkName: "library-page" */));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage' /* webpackChunkName: "movieDetails-page" */));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage' /* webpackChunkName: "notFound-page" */));
 
@@ -16,38 +19,54 @@ const App = () => {
       <Header />
       <Suspense fallback={<Loader />}>
         <Switch>
-
-          <Route path="/" exact>
+          <PublicRoute path='/' exact>
+            {/* <Route path="/" exact> */}
             <Section>
               <Container>
                 <HomePage />
               </Container>
             </Section>
-          </Route>
-
-          <Route path="/movies" exact>
+            {/* </Route> */}
+          </PublicRoute>
+          <PublicRoute path='/movies'>
+            {/* <Route path="/movies" exact> */}
             <Section>
               <Container>
                 <MoviesPage />
               </Container>
             </Section>
-          </Route>
+            {/* </Route> */}
+          </PublicRoute>
 
-          <Route path="/movies/:slug">
+          <PublicRoute path='/movies/:slug'>
+            {/* <Route path="/movies/:slug"> */}
             <Section>
               <Container>
                 <MovieDetailsPage />
               </Container>
             </Section>
-          </Route>
+            {/* </Route> */}
+          </PublicRoute>
+
+          <PrivateRoute path='/library'>
+            {/* <Route path="/movies/:slug"> */}
+            <Section>
+              <Container>
+                <LibraryPage />
+              </Container>
+            </Section>
+            {/* </Route> */}
+          </PrivateRoute>
           
-          <Route>
+          <PublicRoute>
+            {/* <Route> */}
             <Section>
               <Container>
                 <NotFoundPage />
               </Container>
             </Section>
-          </Route>
+            {/* </Route> */}
+          </PublicRoute>
 
         </Switch>
       </Suspense>

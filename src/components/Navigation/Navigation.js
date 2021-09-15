@@ -30,7 +30,7 @@ const Navigation = () => {
                     <Modal
                         onClose={toggleModal}
                     >
-                        <AuthModal
+                        <AuthModal onClose={toggleModal}
                         />
                     </Modal>
                 }

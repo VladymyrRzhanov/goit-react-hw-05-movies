@@ -11,9 +11,11 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import auth from "../../firebase";
+import { signInWithEmailAndPassword  } from "firebase/auth";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
-const LodinForm = () => {
+const LoginForm = ({onClose}) => {
     // const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -58,10 +60,22 @@ const LodinForm = () => {
         };
     };
 
+    const signIn = async () => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password)
+            console.log(userCredential)
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        }
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
+        signIn()
         // dispatch(authUserOperations.loginUser({ email, password }));
         reset();
+        onClose();
     };
 
 
@@ -113,4 +127,4 @@ const LodinForm = () => {
     );
 };
 
-export default LodinForm;
+export default LoginForm;
