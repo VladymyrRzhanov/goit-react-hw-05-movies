@@ -9,8 +9,7 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import PublicRoute from "../Routes/PublicRoute";
 import { useDispatch } from 'react-redux';
 import * as authUserOperation from "../../redux/authUser/authUser-operation";
-import { getUser } from "../../redux/authUser/authUser-selector";
-import { useSelector } from 'react-redux';
+import { onAuthStateChanged, getAuth } from "firebase/auth";
 const HomePage = lazy(() => import('../../pages/HomePage' /* webpackChunkName: "home-page" */));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */));
 const LibraryPage = lazy(() => import('../../pages/LibraryPage' /* webpackChunkName: "library-page" */));
@@ -18,21 +17,16 @@ const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage' /* web
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage' /* webpackChunkName: "notFound-page" */));
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // const user = useSelector(getUser)
-  // const [currentUser, setCurrentUser] = useState(null)
+  const dispatch = useDispatch();
+  const [currentUser, setCurrentUser] = useState(null)
 
-  // useEffect(() => {
-  //   setCurrentUser(user)
-  // }, [user])
-
-  // useEffect(() => {
-  //   console.log('app',currentUser)
-  //   if (currentUser === null || currentUser.uid===null) {
-  //     return
-  //   }
-  //   dispatch(authUserOperation.getCurrentUser(currentUser))
-  // }, [currentUser])
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (setCurrentUser))
+    if (currentUser) {
+      dispatch(authUserOperation.getCurrentUser(currentUser))
+    }
+  }, [currentUser, dispatch]);
 
   return (
     <>

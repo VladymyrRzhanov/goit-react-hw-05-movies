@@ -12,7 +12,6 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import auth from "../../firebase";
 import { ContactForm, Button, BtnText, CustomForm } from "./styles";
 
 const LoginForm = ({onClose}) => {
@@ -62,7 +61,8 @@ const LoginForm = ({onClose}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(authUserOperation.loginUser({auth, email, password}))
+        // loginUser()
+        dispatch(authUserOperation.loginUser({ email, password }))
         reset();
         onClose();
     };

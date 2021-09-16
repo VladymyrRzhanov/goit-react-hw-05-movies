@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
-  persistStore,
-  persistReducer,
+  // persistStore,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 import authUserReducer from "./authUser/authUser-reducer";
 import filmsPageReducer from "./filmsPage/filmsPage-reducer";
 
@@ -24,7 +24,7 @@ const middleware = [
 // const authPersistConfig = {
 //   key: 'auth',
 //   storage,
-//   whitelist: ['token']
+//   // whitelist: ['user']
 // }
 
 export const store = configureStore({
