@@ -57,8 +57,12 @@ export const LibraryLink = styled(NavLink)`
 }
 `;
 
-
-export const Logout = styled(ExitToAppOutlinedIcon)`
-color: rgb(51 147 216);
+export const Button = styled.button`
+border: none;
+background-color: transparent;
 cursor: pointer;
+`;
+
+export const IconOut = styled(ExitToAppOutlinedIcon)`
+color: rgb(51 147 216);
 `;
