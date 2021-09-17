@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ReactComponent as FavIcon } from "../../images/favorite.svg";
+import { ReactComponent as FavIcon } from "../../images/favourite.svg";
 import { ReactComponent as EyeIcon } from "../../images/tv.svg";
 
 export const Gallery = styled.ul`

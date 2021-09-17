@@ -5,7 +5,6 @@ import FilmsGallery from "../components/FilmsGallery";
 import * as FilmsApi from "../service/apiFilmsService";
 
 
-
 const LibraryPage = () => {
   const favFilmsGallery = useSelector(getFavFilms);
   const [favFilms, setFavFilms] = useState([])
@@ -23,10 +22,11 @@ const LibraryPage = () => {
         }
         )
         .catch(error => setError(error)))
-  }, []);
-  console.log(!!favFilmsGallery)
+  }, [favFilmsGallery]);
+
   return (
     <>
+      {error && <h1>{error.message}</h1>}
       {favFilmsGallery && <FilmsGallery films={favFilms} />}
     </>
   );
