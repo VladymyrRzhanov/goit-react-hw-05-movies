@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as FavIcon } from "../../images/favorite.svg";
-import { ReactComponent as EyeIcon } from "../../images/eye.svg";
+import { ReactComponent as EyeIcon } from "../../images/tv.svg";
 
 export const Gallery = styled.ul`
 padding-bottom: 30px;
@@ -32,10 +32,6 @@ export const Item = styled.li`
   flex-basis: calc((100% - 5 * 10px) / 5);
   margin: 5px;
   border-radius: 2px;
-}
-
-&:not(:last-child) {
-  margin-bottom: 20px;
 }
 `;
 
@@ -82,27 +78,38 @@ export const GalleryImage = styled.img`
 // `;
 
 export const BtnContainer = styled.div`
-position: absolute;
-display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  left: 0;
-  padding: 20px 24px;
-  color: $white-color;
-  background-color: rgb(181 181 181 / 63%);
+// position: absolute;
+// display: flex;
+//     align-items: center;
+//     justify-content: space-evenly;
+//   width: 100%;
+//   height: 30px;
+//   bottom: 0;
+//   left: 0;
+//   padding: 20px 24px;
+//   color: $white-color;
+//   background-color: rgb(181 181 181 / 63%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+     align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 5px 0;
 `;
 
 export const Favorite = styled(FavIcon)`
 width: 30px;
 height: 30px;
+fill: rgb(255 129 0);
 `;
 
 export const Viewed = styled(EyeIcon)`
 width: 30px;
 height: 30px;
+fill: rgb(255 129 0);
 `;
 
 export const BtnLib = styled.button`

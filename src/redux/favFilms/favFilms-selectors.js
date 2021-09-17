@@ -1,0 +1,1 @@
+export const getFavFilms = state => state.favFilms;
