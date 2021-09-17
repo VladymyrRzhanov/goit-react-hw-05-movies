@@ -3,9 +3,9 @@ import * as authUserOperations from './authUser-operation';
 
 const initialState = {
     user: null,
-    // token: null,
     isLoggedIn: false,
-    isCurrentUser: false
+    isCurrentUser: false,
+    error: null
 };
 
 const authUserSlice = createSlice({
@@ -16,12 +16,20 @@ const authUserSlice = createSlice({
             state.user = payload;
             state.isLoggedIn = true;
         },
+        [authUserOperations.createUser.rejected](state, { error }) {
+            state.error = error.message;
+            state.isLoggedIn = false;
+        },
         [authUserOperations.loginUser.fulfilled](state, { payload }) {
             state.user = payload;
             state.isLoggedIn = true;
         },
+        [authUserOperations.loginUser.rejected](state, { error }) {
+            state.error = error.message;
+            state.isLoggedIn = false;
+        },
         [authUserOperations.logoutUser.fulfilled](state, action) {
-            state.user  = null;
+            state.user = null;
             state.isLoggedIn = false;
         },
         [authUserOperations.getCurrentUser.pending](state) {
@@ -32,7 +40,7 @@ const authUserSlice = createSlice({
             state.isLoggedIn = true;
             state.isCurrentUser = false;
         },
-         [authUserOperations.getCurrentUser.rejected](state) {
+        [authUserOperations.getCurrentUser.rejected](state) {
             state.isCurrentUser = false;
         },
     },

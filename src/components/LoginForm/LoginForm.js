@@ -61,7 +61,6 @@ const LoginForm = ({onClose}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // loginUser()
         dispatch(authUserOperation.loginUser({ email, password }))
         reset();
         onClose();
