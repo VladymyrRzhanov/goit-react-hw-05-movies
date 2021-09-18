@@ -14,13 +14,14 @@ const LibraryPage = () => {
     if (!favFilmsGallery) {
       return
     }
+    setFavFilms([])
     favFilmsGallery.map(id =>
       FilmsApi
         .fetchDetailsMovie(id)
         .then(
           film => {
-          setFavFilms(state=>[...state,film]);
-        }
+            setFavFilms(state => [...state, film]);
+          }
         )
         .catch(error => setError(error)))
   }, [favFilmsGallery]);

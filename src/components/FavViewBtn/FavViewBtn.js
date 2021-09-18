@@ -18,16 +18,34 @@ const FavViewBtn = ({movieId, id}) => {
     
     const addToFav = (e, movieId) => {
         if (e.target.checked) {
+            setChecked(true)
             return dispatch(favFilmsActions.addFavFilms(movieId));
-        }
-        return dispatch(favFilmsActions.deleteFavFilms(movieId));
+        } else {
+            setChecked(false)
+            return dispatch(favFilmsActions.deleteFavFilms(movieId))
+        };
     };
+
+    useEffect(() => {
+        if (isChecked.includes(id)) {
+            return setChecked(true)
+        }
+            return setChecked(false)
+        
+    }, [id, isChecked])
+
+    // const addToFav = (e, movieId) => {
+    //     if (e.target.checked) {
+    // return setChecked(true)
+    //     }
+    // return setChecked(false)
+    // };
  
     return (
         <Container>
             <Btn {...label} icon={<FavoriteBtn />} checkedIcon={<FavoriteBtnChecked />}
                 onClick={(e) => addToFav(e, movieId)} id={id}
-                // checked={checked}
+                checked={checked}
             />
             <Btn
                 {...label}

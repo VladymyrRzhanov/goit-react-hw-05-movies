@@ -17,11 +17,13 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
     return (
         <Item>
             <Container>
-                <FilmLink id={filmId}
+                <FilmLink
+                    id={filmId}
                     to={{
                         pathname: `/movies/${slugify(`${title} ${id}`, { lower: true, strict: true })}`,
                         state: { from: location }
-                    }}>
+                    }}
+                >
                     <GalleryImage
                         src={foto}
                         alt={title}
