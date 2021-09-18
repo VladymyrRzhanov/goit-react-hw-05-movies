@@ -1,10 +1,20 @@
 import styled from 'styled-components';
 import { ReactComponent as FavIcon } from "../../images/star.svg";
 import { ReactComponent as EyeIcon } from "../../images/tv.svg";
+import Checkbox from '@mui/material/Checkbox';
+
 // import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 // import Favorite from '@mui/icons-material/Favorite';
 // import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 // import BookmarkIcon from '@mui/icons-material/Bookmark';
+
+export const Btn = styled(Checkbox)`
+    transition: transform 250ms ease-in;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+`;
 
 export const FavoriteBtn = styled(FavIcon)`
     width: 25px;
@@ -12,6 +22,15 @@ export const FavoriteBtn = styled(FavIcon)`
     fill: transparent;
     stroke: rgb(255 129 0);
     stroke-width: 0.5ch;
+
+    &:checked {
+        width: 25px;
+    height: 25px;
+    fill: rgb(255 129 0);
+    stroke: rgb(255 129 0);
+    stroke-width: 0.5ch;
+    }
+    
 `;
 
 export const FavoriteBtnChecked = styled(FavIcon)`

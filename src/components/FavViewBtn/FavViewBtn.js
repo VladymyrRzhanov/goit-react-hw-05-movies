@@ -1,34 +1,39 @@
-import * as React from 'react';
-import Checkbox from '@mui/material/Checkbox';
+import React, {useEffect, useState} from 'react';
+// import Checkbox from '@mui/material/Checkbox';
 import PropTypes from 'prop-types'
 // import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 // import Favorite from '@mui/icons-material/Favorite';
 // import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 // import BookmarkIcon from '@mui/icons-material/Bookmark';
 import * as favFilmsActions from "../../redux/favFilms/favFilms-actions";
-import { Container, FavoriteBtn, Viewed, FavoriteBtnChecked, ViewedChecked } from "./styles";
-import { useDispatch } from 'react-redux';
+import {getFavFilms} from "../../redux/favFilms/favFilms-selectors";
+import { Container, FavoriteBtn, Viewed, FavoriteBtnChecked, ViewedChecked, Btn } from "./styles";
+import { useDispatch, useSelector } from 'react-redux';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-const FavViewBtn = ({movieId}) => {
-    const dispatch = useDispatch()
-
+const FavViewBtn = ({movieId, id}) => {
+    const dispatch = useDispatch();
+    const isChecked = useSelector(getFavFilms);
+    const [checked, setChecked] = useState(false);
+    
     const addToFav = (e, movieId) => {
         if (e.target.checked) {
-           return dispatch(favFilmsActions.addFavFilms(movieId))
+            return dispatch(favFilmsActions.addFavFilms(movieId));
         }
-            return dispatch(favFilmsActions.deleteFavFilms(movieId))
-    }
-
+        return dispatch(favFilmsActions.deleteFavFilms(movieId));
+    };
+ 
     return (
         <Container>
-            <Checkbox {...label} icon={<FavoriteBtn />} checkedIcon={<FavoriteBtnChecked />}
-                onClick={(e) => addToFav(e, movieId)}
+            <Btn {...label} icon={<FavoriteBtn />} checkedIcon={<FavoriteBtnChecked />}
+                onClick={(e) => addToFav(e, movieId)} id={id}
+                // checked={checked}
             />
-            <Checkbox
+            <Btn
                 {...label}
                 icon={<Viewed />}
                 checkedIcon={<ViewedChecked />}
+                id={id}
             />
         </Container>
     );

@@ -40,8 +40,8 @@ export const store = configureStore({
     auth: authUserReducer,
     // auth: persistReducer(authPersistConfig, authUserReducer),
     filmsPage: filmsPageReducer,
-    favFilms: favFilmsReducer,
-    // favFilms: persistReducer(favFilmsPersistConfig, favFilmsReducer),
+    // favFilms: favFilmsReducer,
+    favFilms: persistReducer(favFilmsPersistConfig, favFilmsReducer),
     viewFilms: persistReducer(viewFilmsPersistConfig, viewFilmsReducer)
   },
   middleware,

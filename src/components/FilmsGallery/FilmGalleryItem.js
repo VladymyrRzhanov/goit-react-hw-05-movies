@@ -13,7 +13,7 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
     const location = useLocation();
     const isLoggeIn = useSelector(getIsLoggeIn);
     const foto = poster === null ? oskar : `${IMAGE_URL}${poster}`;
-    
+
     return (
         <Item>
             <Container>
@@ -28,7 +28,7 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
                     />
                 </FilmLink>
                 {isLoggeIn && (
-                    <FavViewBtn movieId={filmId}/>
+                    <FavViewBtn movieId={filmId} id={filmId}/>
                 )}
             </Container>
         </Item>

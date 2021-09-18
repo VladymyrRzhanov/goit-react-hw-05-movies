@@ -9,6 +9,7 @@ const LibraryPage = () => {
   const favFilmsGallery = useSelector(getFavFilms);
   const [favFilms, setFavFilms] = useState([])
   const [error, setError] = useState(null)
+  
   useEffect(() => {
     if (!favFilmsGallery) {
       return
