@@ -8,7 +8,7 @@ import Pagination from '../components/Pagination';
 
 const MoviesPage = () => {
     const [totalPage, setTotalPage] = useState(null);
-    const [searchFilms, setSearchFilms] = useState(null);
+    const [searchFilms, setSearchFilms] = useState([]);
     const [error, setError] = useState(null)
     const location = useLocation();
     const page = useSelector(getPage);
@@ -33,11 +33,12 @@ const MoviesPage = () => {
     return (
         <>
             {error && <h1>{error.message}</h1>}
-            {searchFilms && <FilmsGallery films={searchFilms} />}
-            {!!totalPage && <Pagination
-                totalPage={totalPage}
-            />
-            }
+            <FilmsGallery films={searchFilms} />
+            {/* {searchFilms.length % 20 === 0 && !!searchFilms.length && */}
+                <Pagination
+                    totalPage={totalPage}
+                />
+            {/* } */}
         </>
     );
 };

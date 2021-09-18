@@ -21,6 +21,17 @@ export const BtnPlay = styled(Play)`
   transform: translate(-50%, -50%);
 `;
 
+export const PosterContainer = styled.div`
+position: relative;
+ @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
+`;
+
 export const Poster = styled.div`
   position: relative;
   display: block;
@@ -36,13 +47,6 @@ export const Poster = styled.div`
 &:hover, &:focus {
   opacity: 0.7;
 }
-  @media screen and (max-width: 767px) {
-    margin-bottom: 20px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-right: 30px;
-  }
 `;
 
 export const PosterImg = styled.img`

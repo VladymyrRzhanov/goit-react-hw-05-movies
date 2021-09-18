@@ -20,6 +20,10 @@ const authUserSlice = createSlice({
             state.error = error.message;
             state.isLoggedIn = false;
         },
+        [authUserOperations.loginUser.pending](state, { error }) {
+            state.error = null;
+            state.isLoggedIn = false;
+        },
         [authUserOperations.loginUser.fulfilled](state, { payload }) {
             state.user = payload;
             state.isLoggedIn = true;

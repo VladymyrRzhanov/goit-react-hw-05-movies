@@ -14,7 +14,8 @@ import {getIsCurrentUser, getError } from "../../redux/authUser/authUser-selecto
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 const HomePage = lazy(() => import('../../pages/HomePage' /* webpackChunkName: "home-page" */));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage' /* webpackChunkName: "movies-page" */));
-const LibraryPage = lazy(() => import('../../pages/LibraryPage' /* webpackChunkName: "library-page" */));
+const FavouritesPage = lazy(() => import('../../pages/FavouritesPage' /* webpackChunkName: "favourites-page" */));
+const ViewedPage = lazy(() => import('../../pages/ViewedPage' /* webpackChunkName: "viewed-page" */));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage' /* webpackChunkName: "movieDetails-page" */));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage' /* webpackChunkName: "notFound-page" */));
 
@@ -22,6 +23,7 @@ const App = () => {
   const dispatch = useDispatch();
   const isCurrentUser = useSelector(getIsCurrentUser);
   const isError = useSelector(getError);
+  const errorMessage='Incorrect mail or password. Try again'
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const App = () => {
       
           <Header />
       )}
-      {isError && <Notification message={isError}/>}
+      {isError && <Notification message={errorMessage}/>}
           <Suspense fallback={<Loader />}>
             <Switch>
               <PublicRoute path='/' exact>
@@ -66,10 +68,18 @@ const App = () => {
                 </Section>
               </PublicRoute>
 
-              <PrivateRoute path='/library'>
+              <PrivateRoute path='/favourites'>
                 <Section>
                   <Container>
-                    <LibraryPage />
+                    <FavouritesPage />
+                  </Container>
+                </Section>
+          </PrivateRoute>
+          
+          <PrivateRoute path='/viewed'>
+                <Section>
+                  <Container>
+                    <ViewedPage />
                   </Container>
                 </Section>
               </PrivateRoute>

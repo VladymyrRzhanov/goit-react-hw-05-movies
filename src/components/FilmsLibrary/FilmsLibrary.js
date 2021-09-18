@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import * as authUserOperation from "../../redux/authUser/authUser-operation";
-import { LibraryLink, IconOut, Button } from "./styles";
+import CollectionMenu from "../CollectionMenu/CollectionMenu";
+import { IconOut, Button } from "./styles";
 
 
 const FilmsLibrary = () => {
@@ -8,9 +9,7 @@ const FilmsLibrary = () => {
 
     return (
         <>
-            <LibraryLink to='/library'>
-                Library
-            </LibraryLink>
+            <CollectionMenu/>
             <Button type='button' onClick={() => dispatch(authUserOperation.logoutUser())}><IconOut/></Button>
         </>
     );

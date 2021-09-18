@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import authUserReducer from "./authUser/authUser-reducer";
 import favFilmsReducer from './favFilms/favFilms-reducer';
 import filmsPageReducer from "./filmsPage/filmsPage-reducer";
-import viewFilmsReducer from './viewFilms/viewFilms-reducer';
+import viewedFilmsReducer from './viewFilms/viewedFilms-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -42,7 +42,7 @@ export const store = configureStore({
     filmsPage: filmsPageReducer,
     // favFilms: favFilmsReducer,
     favFilms: persistReducer(favFilmsPersistConfig, favFilmsReducer),
-    viewFilms: persistReducer(viewFilmsPersistConfig, viewFilmsReducer)
+    viewedFilms: persistReducer(viewFilmsPersistConfig, viewedFilmsReducer)
   },
   middleware,
 //   devTools: process.env.NODE_ENV === 'development',

@@ -64,5 +64,5 @@ cursor: pointer;
 `;
 
 export const IconOut = styled(ExitToAppOutlinedIcon)`
-color: rgb(51 147 216);
+color: rgb(254 128 0);
 `;

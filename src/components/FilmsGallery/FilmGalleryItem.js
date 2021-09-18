@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import FavViewBtn from "../FavViewBtn";
+import FavViewContainer from "../FavViewBtn";
 import slugify from "slugify";
 import PropTypes from 'prop-types';
 import oskar from '../../images/oskar.jpg';
@@ -30,7 +30,7 @@ const FilmGalleryItem = ({ id, filmId, poster, title }) => {
                     />
                 </FilmLink>
                 {isLoggeIn && (
-                    <FavViewBtn movieId={filmId} id={filmId}/>
+                    <FavViewContainer movieId={filmId} id={filmId}/>
                 )}
             </Container>
         </Item>

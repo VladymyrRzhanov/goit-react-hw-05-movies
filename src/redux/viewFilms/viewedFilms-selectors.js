@@ -1,0 +1,1 @@
+export const getViewedFilms = state => state.viewedFilms.viewed;

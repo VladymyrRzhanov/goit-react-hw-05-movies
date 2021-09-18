@@ -46,11 +46,11 @@ const HomePage = () => {
             <FilmsGallery films={films} />
             {error && <h1>{error.message}</h1>}
             {loading && <Loader />}
-            {films.length % 20 === 0 && !!films.length &&
+            {/* {films.length % 20 === 0 && !!films.length && */}
                 <PagePagination
                     totalPage={totalPage}
                 />
-            }
+            {/* } */}
         </>
     );
 };

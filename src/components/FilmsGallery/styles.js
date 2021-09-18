@@ -65,30 +65,12 @@ export const GalleryImage = styled.img`
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+    opacity: 0.7;
 }
 `;
 
-// export const Title = styled.p`
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 1.17;
-//   text-transform: uppercase;
-//   color: #000;
-// `;
-
 export const BtnContainer = styled.div`
-// position: absolute;
-// display: flex;
-//     align-items: center;
-//     justify-content: space-evenly;
-//   width: 100%;
-//   height: 30px;
-//   bottom: 0;
-//   left: 0;
-//   padding: 20px 24px;
-//   color: $white-color;
-//   background-color: rgb(181 181 181 / 63%);
   position: absolute;
   display: flex;
   flex-direction: column;

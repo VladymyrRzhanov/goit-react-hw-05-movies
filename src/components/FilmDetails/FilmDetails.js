@@ -1,11 +1,15 @@
 import { useRouteMatch, useLocation, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getIsLoggeIn } from "../../redux/authUser/authUser-selector";
+import FavViewContainer from "../FavViewBtn";
 import PropTypes from 'prop-types';
 import Button from "../Button";
 import oskar from '../../images/oskar.jpg'
 import s from "./FilmDetails.module.css";
-import { Data, Poster, Title, Tagline, Details, List, Item, Meaning, Value, OverviewTitle, OverviewText, Info, InfoItem, LinkInfo, ButtonContainer, PosterImg, BtnPlay } from "./styles";
+import { Data, PosterContainer,Poster, Title, Tagline, Details, List, Item, Meaning, Value, OverviewTitle, OverviewText, Info, InfoItem, LinkInfo, ButtonContainer, PosterImg, BtnPlay } from "./styles";
 
 const FilmDetails = ({ film, onModalOpen }) => {
+    const isLoggeIn = useSelector(getIsLoggeIn);
     const { url } = useRouteMatch();
     const location = useLocation();
     const history = useHistory();
@@ -14,7 +18,7 @@ const FilmDetails = ({ film, onModalOpen }) => {
     const genresFilm = genres.map(genre => genre.name).join(', ');
     const country = production_countries.map(({ name }) => name).join(', ');
     const poster = poster_path === null ? oskar : `${IMAGE_URL}${poster_path}`;
-    
+
     const onGoBack = () => {
         history.push(location?.state?.from ?? '/')
     };
@@ -25,10 +29,15 @@ const FilmDetails = ({ film, onModalOpen }) => {
                 <Button text={'Go back'} type={'button'} onLoadMore={onGoBack} />
             </ButtonContainer>
                 <Data>
-                    <Poster onClick={() => onModalOpen(id)}>
+                <PosterContainer>
+                     <Poster onClick={() => onModalOpen(id)}>
                         <PosterImg src={poster} alt={title} />
                         <BtnPlay />
-                    </Poster>
+                </Poster>
+                {isLoggeIn && (
+                    <FavViewContainer movieId={film.id} id={film.id}/>
+                )}
+                       </PosterContainer>
                     <Details>
                         <Title>{title}({release_date.slice(0, 4)})</Title>
                         <Tagline>{tagline}</Tagline>

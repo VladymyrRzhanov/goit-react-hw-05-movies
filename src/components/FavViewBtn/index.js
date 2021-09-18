@@ -1,1 +1,1 @@
-export { default } from './FavViewBtn';
+export { default } from './FavViewContainer';
