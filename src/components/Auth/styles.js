@@ -15,6 +15,10 @@ export const BtnAuth = styled.button`
   line-height: 14px;
   letter-spacing: 0.4px;
 
+  @media screen and (max-width: 767px) {
+    margin-left: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
