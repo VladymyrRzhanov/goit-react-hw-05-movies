@@ -4,10 +4,14 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 125px;
+  max-width: 180px;
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 20px;
+  }
 
   @media screen and (min-width: 768px) {
     max-width: 300px;

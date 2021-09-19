@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
+import * as authUserOperation from "../../redux/authUser/authUser-operation";
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -7,7 +9,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-import { MenuLink } from "./styles";
+import { Container, MenuLink, IconOut, LogOutButton } from "./styles";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,6 +33,7 @@ const CollectionMenu = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
+    const dispatch = useDispatch();
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
@@ -62,16 +65,7 @@ const CollectionMenu = () => {
     }, [open]);
 
     return (
-        <div
-            // className={classes.root}
-        >
-            {/* <Paper className={classes.paper}>
-                <MenuList>
-                    <MenuItem>Profile</MenuItem>
-                    <MenuItem>My account</MenuItem>
-                    <MenuItem>Logout</MenuItem>
-                </MenuList>
-            </Paper> */}
+        <Container>
             <div>
                 <Button
                     className={classes.MuiButton}
@@ -80,7 +74,7 @@ const CollectionMenu = () => {
                     aria-haspopup="true"
                     onClick={handleToggle}
                 >
-                    Library
+                    Collection
                 </Button>
                 <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal className={classes.dropMenu}>
                     {({ TransitionProps, placement }) => (
@@ -108,8 +102,9 @@ const CollectionMenu = () => {
                         </Grow>
                     )}
                 </Popper>
-            </div>
-        </div>
+                </div>
+                <LogOutButton type='button' onClick={() => dispatch(authUserOperation.logoutUser())}><IconOut/></LogOutButton>
+        </Container>
     );
 };
 

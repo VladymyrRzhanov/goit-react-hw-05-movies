@@ -7,7 +7,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px 0;
+
+  @media screen and (min-width: 768px) {
   padding: 15px 0;
+  }
 `;
 
 export const Nav = styled.nav`

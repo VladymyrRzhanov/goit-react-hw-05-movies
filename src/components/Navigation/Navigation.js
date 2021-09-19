@@ -5,7 +5,7 @@ import { filmsPageActions } from "../../redux/filmsPage/filmsPage-actions";
 import { getIsLoggeIn } from "../../redux/authUser/authUser-selector";
 import Filter from '../Filter';
 import Auth from "../Auth";
-import FilmsLibrary from "../FilmsLibrary";
+import UserMenu from "../UserMenu";
 import { Container, Nav, LogoMob, LogoBig,  } from "./styles";
 
 const Navigation = () => {
@@ -20,7 +20,7 @@ const Navigation = () => {
             </Link>
             <Filter />
             <Nav>
-                {isLoggedIn ? <FilmsLibrary /> : <Auth />}
+                {isLoggedIn ? <UserMenu /> : <Auth />}
             </Nav>
         </Container>
     );

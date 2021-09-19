@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Gallery = styled.ul`
   padding-bottom: 30px;
   display: flex;
