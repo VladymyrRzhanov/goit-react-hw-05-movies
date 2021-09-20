@@ -2,13 +2,12 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ImagesList from "../components/ImagesList";
 import Modal from "../components/Modal";
-import ModalImages from "../components/Modal/ModalImages";
 import * as FilmsApi from "../service/apiFilmsService";
+import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 
 const ImagesViews = () => {
     const [images, setImages] = useState([]);
     const [modalShow, setModalShow] = useState(false);
-    const [modalValue, setModalValue] = useState('');
     const [index, setIndex] = useState(null)
     const [error, setError] = useState('');
     const { slug } = useParams();
@@ -22,10 +21,9 @@ const ImagesViews = () => {
             .catch(error => setError(error)
             )
     }, [imagesId])
-
+    
     const toggleModal = (value,index) => {
         setModalShow(!modalShow);
-        setModalValue(value);
         setIndex(index)
     };
     
@@ -38,7 +36,7 @@ const ImagesViews = () => {
                 <Modal
                     onClose={toggleModal} index={index}
                 >
-                    <ModalImages modalValue={modalValue}/>
+                    <ImageCarousel images={images} currentIndex={index}/>
                     </Modal>
             )}
         </>

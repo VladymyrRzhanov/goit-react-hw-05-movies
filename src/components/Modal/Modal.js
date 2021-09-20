@@ -4,12 +4,19 @@ import { createPortal } from 'react-dom';
 import { Overlay, CustomModal } from "./styles";
 
 const modalRoot = document.querySelector('#modal');
+const body=document.querySelector('body')
 
 const Modal = ({ onClose, index, children }) => {
+    useEffect(() => {
+        body.classList.add('modal-open')
+        console.log(body)
+    }, [])
+
     useEffect(() => {
         const modalClose = e => {
             if (e.code === 'Escape') {
                 onClose();
+                body.classList.remove('modal-open')
             }
         };
         window.addEventListener('keydown', modalClose);
@@ -21,6 +28,8 @@ const Modal = ({ onClose, index, children }) => {
     const handleBackdropClick = e => {
         if (e.currentTarget === e.target) {
             onClose();
+            body.classList.remove('modal-open')
+
         }
     };
 
