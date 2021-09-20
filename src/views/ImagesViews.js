@@ -30,15 +30,15 @@ const ImagesViews = () => {
     return (
         <>
             {error && <h1>{error.message}</h1>}
-            {images && <ImagesList images={images} onModalOpen={toggleModal}/>}
+            {images && <ImagesList images={images} onModalOpen={toggleModal} />}
             {modalShow &&
                 (
-                <Modal
-                    onClose={toggleModal} index={index}
-                >
-                    <ImageCarousel images={images} currentIndex={index}/>
+                    <Modal
+                        onClose={toggleModal} index={index}
+                    >
+                        <ImageCarousel images={images} currentIndex={index} />
                     </Modal>
-            )}
+                )}
         </>
     );
 };
